@@ -12,10 +12,9 @@
 <body>
     <div class="container">
         <!-- ビンゴカード1 -->
-
         <div class="bingo">
             <div class="bingo-heading">
-                <h2>スタートボタンを押してね</h2>
+                <h2>STARTボタンを押してね</h2>
             </div>
             <div class="card">
                 <div class="outer"  id="outer">
@@ -35,10 +34,10 @@
         <!-- ビンゴカード2 -->
 
         <div class="bingo">
-            <div class="bingo-heading">
-                <h2>スタートボタンを押してね</h2>
+            <div class="bingo-heading2">
+                <h2>STARTボタンを押してね</h2>
             </div>
-            <div class="card">
+            <div class="card card2">
                 <div class="outer"  id="outer2">
                 </div>
             </div>
@@ -51,6 +50,7 @@
         mass = <%= raw @mass.to_json %>;
         images = <%= raw @pictures.to_json %>;
         names = <%= raw @names.to_json %>;
+        names2 = <%= raw @names2.to_json %>;
         //const imagePath = "<%= asset_path('animal/1.png') %>";
         imagePaths = <%= raw @image_paths.map { |path| "#{path}" }.to_json %>;
         imagePathsArray = <%= raw @image_paths.map { |path| asset_path("#{path}") }.to_json %>;

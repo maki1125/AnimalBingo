@@ -55,7 +55,7 @@
   /*カード全体*/
   display:flex;
   flex-wrap: wrap;
-  background-color: blue;
+  background-color: green;
   padding: 10px;
   min-width:500px;
   max-width:500px;
@@ -65,6 +65,8 @@
     background-color: #ffffff;
     border:solid 1px black;
     position: relative;
+    /*border-radius: 10px;*/
+    /*margin:0.5px;*/
 }
 .square::before{
   /*擬似要素で正方形のマスを作成*/
