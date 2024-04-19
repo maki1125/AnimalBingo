@@ -32,22 +32,25 @@ class BingoController < ApplicationController
     end
     #絵の選択
     @pictures = Animal.order("RAND()").limit(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
-    @pictures2 = Animal.order("RAND()").limit(@mass*@mass+1)
+    @pictures2 = Animal.order("RAND()").limit(@mass*@mass)
     if @favorite_btn.present?
       case @favorite_btn
       when 1 #"どうぶつ"
         @pictures = Animal.order("RAND()").limit(@mass*@mass+1)
-        @pictures2 = Animal.order("RAND()").limit(@mass*@mass+1)
+        @pictures2 = Animal.order("RAND()").limit(@mass*@mass)
       when 2 #"さかな"
         @pictures = Fish.order("RAND()").limit(@mass*@mass+1)
+        @pictures2 = Fish.order("RAND()").limit(@mass*@mass)
       when 3 #"きょうりゅう"
         @pictures = Dinosaur.order("RAND()").limit(@mass*@mass+1)
+        @pictures2 = Dinosaur.order("RAND()").limit(@mass*@mass)
       end
     end
         
     @image_paths = @pictures.map(&:img) #データの順を同じにするためにpluckではくmapを使用。
-    @image_paths2 = @pictures2.map(&:img) #データの順を同じにするためにpluckではくmapを使用。
+    @image_paths2 = @pictures2.map(&:img) #2枚目のビンゴカード用データ
     @names = @pictures.map(&:name)
+    @names2 = @pictures2.map(&:name)
     
     # binding.pry
     if @play_btn==2
