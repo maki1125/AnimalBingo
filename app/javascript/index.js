@@ -1,3 +1,4 @@
+console.log("animal_quiz ",animal_quiz )
 let colnum //指定した絵柄のコレクション一覧　ex[1,4,7]
 let colimgass //指定した絵柄のコレクションのアセット変換したimgパスの一覧
 var colcount=0; //一覧表示時に使用するカウント。colimgassの要素指定に使用。
@@ -5,8 +6,10 @@ const COLUMN_LENGTH = 4; //表示マスの行数
 const ROW_LENGTH = 5; //表示マスの列数
 const squareWidth = 100 / ROW_LENGTH; // カラム数に基づいたマスの幅
 let col_card = document.getElementById('col_card'); //htmlに設定
-let pic = pic_mode //選択されている絵柄
+let pic = pic_mode //選択されている絵柄。どうぶつ、さかな、きょうりゅう。
 var all_img //選択された絵柄の全ての画像
+let friend; //仲間の数
+
 
 // 一覧作成
 for(let i = 1; i <= COLUMN_LENGTH * ROW_LENGTH; i++){// 画像をマス上に表示
@@ -30,6 +33,8 @@ for(let i = 1; i <= COLUMN_LENGTH * ROW_LENGTH; i++){// 画像をマス上に表
     img.classList.remove("ok");
   }
   addClickEvent(img,i) //ますをクリックした時の動きを追加
+
+  
 }
 //ビンゴカードの並びの設定
 $('.square').css('flex', `0 0 ${squareWidth}%`);
@@ -40,6 +45,9 @@ img.addEventListener('click', function(event) {
     if (img.classList.contains("ok")) {
         handleImageClick(index); //詳細ページにとぶ
     } else {
+      if (img.classList.contains("noFriend")){
+        console.log("noFriend")
+      }else{
       //左右に振るわせる。
       let div = img.parentNode; // img要素の親ノードを取得
       $(div).animate({left: '+=20'},100);
@@ -47,6 +55,9 @@ img.addEventListener('click', function(event) {
       $(div).animate({left: '+=40'},100);
       $(div).animate({left: '-=40'},100);
       $(div).animate({left: '+=20'},100);
+      console.log("違うよ")
+      console.log(img)
+      }
     }
   });
 }
@@ -99,7 +110,9 @@ pic_buttons.forEach(button => {
     // クリックされたボタンのテキストを変数に代入する
     page = 1; //ページの取得
     page_add = (parseInt(page)-1)*20 //ページ→IDへ変換
-    pic = button.textContent;// クリックされたボタンのテキストを変数に代入する
+    pic = button.id;// クリックされたボタンのテキストを変数に代入する
+    //console.log(pic)
+    
     pictureData(pic)//選択した絵柄のデータ取得
     changeImage() //一覧の絵柄変更
   });
@@ -113,22 +126,25 @@ function pictureData(pic) {
       all_img = allanimal_img;
       colnum = colanimal_img.map(path => path.match(/\d+/)[0]); // パスから数字を抽出して配列に入れる。最初は動物のデータを入れる。
       colimgass = colanimal_imgass;
-      pic_btn = document.getElementById('animal');//上の絵柄選択ボタンの初期選択の色変更
+      pic_btn = document.getElementById('どうぶつ');//上の絵柄選択ボタンの初期選択の色変更
       pic_btn.classList.add('selected');
+      friend = animal_quiz+30
       break;
     case "さかな":
       all_img = allfish_img;
       colnum = colfish_img.map(path => path.match(/\d+/)[0]); // パスから数字を抽出して配列に入れる。
       colimgass = colfish_imgass;
-      pic_btn = document.getElementById('fish');
+      pic_btn = document.getElementById('さかな');
       pic_btn.classList.add('selected');
+      friend = fish_quiz+30
       break;
     case "きょうりゅう":
       all_img = alldinosaur_img;
       colnum = coldinosaur_img.map(path => path.match(/\d+/)[0]); // パスから数字を抽出して配列に入れる。
       colimgass = coldinosaur_imgass;
-      pic_btn = document.getElementById('dinosaur');
+      pic_btn = document.getElementById('きょうりゅう');
       pic_btn.classList.add('selected');
+      friend = dinosaur_quiz+30
       break;
     default:
       // 何もしない
@@ -137,6 +153,8 @@ function pictureData(pic) {
 
 //マス一覧画像の変更
 function changeImage(){
+  let divSquare = document.querySelectorAll('.square'); //htmlに設定
+  console.log("divSquareall",divSquare);
   for(let i = 1; i <= COLUMN_LENGTH * ROW_LENGTH; i++){
     let imgElement = document.getElementById(i);
     //bingoリストにあるかどうか確認
@@ -148,6 +166,17 @@ function changeImage(){
       imgElement.src = question_imgass;
       imgElement.classList.remove("ok");
     }
+    //仲間か判断.背景色を変更するためのクラスを追加する。
+    //console.log("divSquare",divSquare[0])
+    console.log("fiend",friend)
+    divSquare[i-1].classList.remove('noFriend'); //背景色のため
+    imgElement.classList.remove("noFriend"); //imgの動きのため
+    //console.log("page_add+i",page_add+i)
+    if (page_add+i>friend){
+      divSquare[i-1].classList.add('noFriend'); 
+      imgElement.classList.add("noFriend");
+    }
+
   }
 }
 

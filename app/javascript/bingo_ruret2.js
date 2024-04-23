@@ -10,7 +10,6 @@ let clickIndex; //クリックしたビンゴマスのID番号
 let bingoAchieved = false; //ビンゴ成立か判定のフラグ
 let bingoImages = [];// ビンゴした画像を格納する配列を定義
 let del=1; //ルーレット用動物一覧の削除した履歴。0はまだ削除していないの意味。ルーレットを回すときに0にする。
-//let num=MASS*MASS; //カードの中のまだクリックしていないマス数。
 let ruretName; //ルーレットででた動物の名前
 let random; //ルーレットのところで生成して、ビンゴカードのところでも使用する。
 let images = imagePathsArray; //1枚目のカードの画像パス一覧。最後の画像はルーレット用なので除く。
@@ -23,9 +22,6 @@ let ruretstaName = names[MASS*MASS]//ルーレットの初期画像の名前
 let bingoFlag = 0; //引き分けかどうかの判断のために使用。
 images = images.splice(0,MASS*MASS); //最後の画像はルーレット用なので処理後除く。
 names = names.splice(0,MASS*MASS);//最後の画像はルーレット用なので処理後除く。
-console.log("namesの初期",names)
-console.log("ruret_names",ruret_names)
-console.log(ruretstaImg,ruretstaName)
 
 // ビンゴカード作成
 function createBingoCard(outer, images,cardId, names){
@@ -130,8 +126,8 @@ function rouletteProcessing() {
     // START・STOPボタンクリックのイベント
     document.getElementById("button").addEventListener("click", function () {
         del = 0; //削除の履歴をクリアする。
-        let text1; //1枚目のカードの上の文字
-        let text2; //2枚目のカードの上の文字
+        let text1 = ""; //1枚目のカードの上の文字
+        let text2 = ""; //2枚目のカードの上の文字
         //また遊ぶ
         if (this.textContent == "また遊ぶ") {
             window.location.href = "/bingo";
@@ -169,9 +165,6 @@ function rouletteProcessing() {
             } else {
                 text2 = "いないね、、、"; // テキストを変更
             }
-            console.log("names", names)
-            console.log("names2", names2)
-            console.log("ruretName", ruretName)
             hedingRuret.textContent = ruret_names[random]; // ルーレット上のテキストを変更
             headingElement.textContent = text1;// カード１上のテキストを変更
             headingElement2.textContent = text2;// カード２上のテキストを変更

@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Quiz.create(
+  user_id: 1,
+  quiz_select: 1,
+  animal_quiz: 0,
+  fish_quiz:0,
+  dinosaur_quiz: 0
+)

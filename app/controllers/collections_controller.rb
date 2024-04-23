@@ -38,6 +38,9 @@ class CollectionsController < ApplicationController
     @coldinosaur_img = @coldinosaur.map(&:img) #データの順を同じにするためにpluckではくmapを使用。
     #はてなマーク
     @question_img = 'question101.png'
+
+    #仲間の数
+    @quiz=current_user.quiz
   end
 
   def show

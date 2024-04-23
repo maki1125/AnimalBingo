@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_07_024748) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_22_152340) do
   create_table "contacts", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.text "message", null: false
@@ -37,6 +37,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_024748) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "quizzes", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "quiz_select"
+    t.integer "animal_quiz"
+    t.integer "fish_quiz"
+    t.integer "dinosaur_quiz"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "ok_num"
+    t.integer "new_num"
+    t.index ["user_id"], name: "index_quizzes_on_user_id", unique: true
+  end
+
   create_table "user_pictures", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "picture_id", null: false
@@ -57,6 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_024748) do
   end
 
   add_foreign_key "modes", "users"
+  add_foreign_key "quizzes", "users"
   add_foreign_key "user_pictures", "pictures"
   add_foreign_key "user_pictures", "users"
 end

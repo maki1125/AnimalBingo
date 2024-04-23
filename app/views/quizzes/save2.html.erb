@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" /> 
+  <title>collection</title>
+  <%= stylesheet_link_tag 'quiz_save', :media => "all" %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <% content_for :js do %>
+    <%= javascript_import_module_tag "quiz_save" %>
+  <% end %>
+</head>
+<body>
+<div class="container">
+<h1>クイズ</h1>
+  <p>あなたの成績は・・・</p>
+  <p class = "result">全問正解！！</p>
+  <p class = "add">新しく５匹が仲間に加わりました！</p>
+  <p class = "add2"></p>
+  <div class="card"></div>
+  <div class="sentence"><p>仲間の数:</p><p class="add3 blue">数字</p></div>
+  <%= button_to "クイズに再挑戦", {controller: 'quizzes', action: 'new'}, method: :get,  class: "btn" %>
+</div>
+
+ <script> //javascriptにデータを渡す。
+  quiz_select = "<%= @quiz.quiz_select %>"
+  ok_num = "<%=@quiz.ok_num %>"
+  new_num = "<%=@quiz.new_num %>"
+  friend_num = "<%=@friendNum %>"
+  imgass = <%= raw @new_friend_img.map { |path| asset_path("#{path}") }.to_json %>;
+
+ </script>   
+</body>
+</html>

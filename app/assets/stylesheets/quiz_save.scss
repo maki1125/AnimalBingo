@@ -1,0 +1,41 @@
+.container{/*要素を縦に並べる*/
+  flex-direction: column;
+}
+.card{
+  display: none;
+  justify-content: space-around; /* 画像を水平方向に均等に配置 */
+  align-items: center; /* 画像を垂直方向に中央に配置 */
+  margin-bottom:20px;
+  flex-wrap: wrap; /* 画像がコンテナの幅を超えた場合に自動的に改行.縦並びが折り返されて横並びになる。 */
+  height:110px;
+  width: 500px;
+  background-color: rgb(232, 226, 226);
+}
+.square{
+  height: 100px;
+  width:100px;
+  border:solid 1px black;
+  background-color: white;
+  display: flex;
+  justify-content: space-around; /* 画像を水平方向に均等に配置 */
+  align-items: center; /* 画像を垂直方向に中央に配置 */
+}
+.square img {
+  /* 画像のスタイル */
+  max-width: 80%; /* 画像の最大幅をマスの幅に合わせる */
+  max-height: 80%; /* 画像の最大高さをマスの高さに合わせる */
+}
+.result{
+  font-size:30px;
+}
+.sentence{
+  font-size: 18px;
+  display: flex;
+}
+.red{
+  color:red;
+}
+
+.blue{
+  color:blue;
+}

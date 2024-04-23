@@ -3,39 +3,14 @@ class ModesController < ApplicationController
 
   # モード選択押した時に新規か更新かわからないため条件分岐を設ける
   def new
-    if current_user.mode==nil
-      @mode = Mode.new
-      #binding.pry
-    else
-      @mode = current_user.mode
-      #binding.pry
-    end
-    #binding.pry
-  end
-
-  def create
-    @mode = Mode.create(mode_params)
-    @mode.user_id = current_user.id
-    #binding.pry
-    if @mode.save
-      # 保存成功時の処理
-      redirect_to bingo_path
-    else
-      # 保存失敗時の処理
-      render :new
-    end
-    
-  end
-
-  def update
     @mode = current_user.mode
-    #binding.pry
+  end
+
+  def update #ユーザー作成の時にmodeデータ作成されているためcreateはなくupdateのみ。
+    @mode = current_user.mode
     if @mode.update(mode_params)
-      #binding.pry
-      # 保存成功時の処理
       redirect_to bingo_path
     else
-      # 保存失敗時の処理
       render :new
     end
   end

@@ -31,6 +31,11 @@ Rails.application.routes.draw do
   get '/modes/select', to: 'modes#select'
   resources :modes, only: %i[new create update edit]
 
+  #クイズ
+  get '/quizzes/play', to: 'quizzes#play'
+  resources :quizzes, only: %i[new create update edit]
+  post '/quizzes/save', to: 'quizzes#save'
+  get '/quizzes/save2', to: 'quizzes#save2'
   #メール確認（開発用）
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'

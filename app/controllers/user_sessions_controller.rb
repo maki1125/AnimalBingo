@@ -17,6 +17,7 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
+    #次回のログイン時にモードは標準から始めたいため。
     @mode = current_user.mode
     if @mode.nil?
     else
@@ -25,6 +26,6 @@ class UserSessionsController < ApplicationController
     logout
     flash[:success]="ログアウトしました"
     # binding.pry
-    redirect_to root_path , status: :see_other #リダイレクト先をログイン画面に指定する
+    redirect_to login_path , status: :see_other #リダイレクト先をログイン画面に指定する
   end
 end

@@ -1,0 +1,38 @@
+
+//クイズの選択ページ
+.radiobox {
+  display: flex;
+  width: 500px;
+  /*max-width: 2000px;*/
+}
+label {
+  background-color: #b9deff;
+  color: black;
+  padding: 10px 10px;
+  margin-right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 1000px;
+  font-size: 15px;
+}
+.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+.custom-radio {/* ラジオボタンの非表示 */
+  display: none;
+}
+.mode-footer{//フッターの表示が変になるため非表示にする
+  display: none;
+}
+.container{/*要素を縦に並べる*/
+  flex-direction: column;
+}
+label{
+  width:1000px;
+}
+
+
+
+

@@ -33,7 +33,7 @@ footer {
 .nav{
   margin:auto;
   height: 100%; /* 要素の高さを100%に設定 */
-  width:600px;/*広く設定しないとリンク文字が折り返される*/
+  width:700px;/*広く設定しないとリンク文字が折り返される*/
   justify-content: flex-end;
 }
 
@@ -66,7 +66,6 @@ input[type="submit"]{
 }
 input[type="submit"]:hover{
   color: white;
-  
 }
 
 article{

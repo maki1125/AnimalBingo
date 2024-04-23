@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" /> 
+  <title>collection</title>
+  <%= stylesheet_link_tag 'quiz', :media => "all" %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <% content_for :js do %>
+    <%= javascript_import_module_tag "quiz_new" %>
+  <% end %>
+</head>
+<body>
+  <div class="container">
+    <h1>クイズ</h1>
+    <p>どのクイズに挑戦するか選んでね！
+    <br><span style="color:red;">正解した数だけ仲間</span>が増える！
+    <br>仲間はビンゴカードに登場するよ。
+    </p>
+    <%= form_with model: @quiz do |form| %>
+    <div class="radiobox">
+      <%= form.radio_button :quiz_select, 1, id: "radio1",class: "custom-radio" %>
+      <%= form.label :quiz_select_1, "どうぶつ🐕", class: "quiz_select", for: "radio1" %>
+      <%= form.radio_button :quiz_select, 2, id: "radio2",class: "custom-radio" %>
+      <%= form.label :quiz_select_2, "さかな🐟", class: "quiz_select", for: "radio2" %>
+      <%= form.radio_button :quiz_select, 3, id: "radio3",class: "custom-radio" %>
+      <%= form.label :quiz_select_3, "きょうりゅう🦕", class: "quiz_select", for: "radio3" %>
+    </div>
+
+   <%= form.submit "クイズに挑戦" %>
+  <% end %>
+  <div> 
+    <div> 
+ <script> //javascriptにデータを渡す。
+    quiz_select = "<%= @quiz.quiz_select %>"
+ </script>   
+</body>
+</html>
