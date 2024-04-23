@@ -12,8 +12,9 @@
 <body>
   <div class="container">
     <h1>コレクション</h1>
-    <p><span style="color:red;">ビンゴ</span>で揃えて『？』をめくろう！
-    <br>灰色はまだ仲間ではないよ。<span style="color:red;">クイズ</span>に挑戦して仲間にしてね。
+    <p><span style="color:red;">クイズ</span>に挑戦して仲間を増やそう。
+    <br><span style="color:red;">ビンゴ</span>したら水色になって動画が見えるよ。
+    
     </p>
     <div class="btnWrapper">
       <button class="btn1" id="どうぶつ">どうぶつ🐕</button>
@@ -35,19 +36,19 @@
   <script> //javascriptにデータを渡す。
     pic_mode = "<%= @favorite_btn %>"
     //1.動物
-    allanimal_img = <%= raw @allanimal_img.map { |path| asset_path("#{path}") }.to_json %>;
+    allanimal_imgass = <%= raw @allanimal_img.map { |path| asset_path("#{path}") }.to_json %>;
     colanimal_img = <%= raw @colanimal_img.map { |path| "#{path}" }.to_json %>;
     colanimal_imgass = <%= raw @colanimal_img.map { |path| asset_path("#{path}") }.to_json %>;
     animal_quiz = <%= @quiz.animal_quiz %>
 
     //2.魚
-    allfish_img = <%= raw @allfish_img.map { |path| asset_path("#{path}") }.to_json %>;
+    allfish_imgass = <%= raw @allfish_img.map { |path| asset_path("#{path}") }.to_json %>;
     colfish_img = <%= raw @colfish_img.map { |path| "#{path}" }.to_json %>;
     colfish_imgass = <%= raw @colfish_img.map { |path| asset_path("#{path}") }.to_json %>;
     fish_quiz = <%= @quiz.fish_quiz %>//仲間の数
 
     //3.恐竜
-    alldinosaur_img = <%= raw @alldinosaur_img.map { |path| asset_path("#{path}") }.to_json %>;
+    alldinosaur_imgass = <%= raw @alldinosaur_img.map { |path| asset_path("#{path}") }.to_json %>;
     coldinosaur_img = <%= raw @coldinosaur_img.map { |path| "#{path}" }.to_json %>;
     coldinosaur_imgass = <%= raw @coldinosaur_img.map { |path| asset_path("#{path}") }.to_json %>;
     dinosaur_quiz = <%= @quiz.dinosaur_quiz %>//仲間の数

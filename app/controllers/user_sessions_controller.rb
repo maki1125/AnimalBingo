@@ -17,12 +17,6 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    #次回のログイン時にモードは標準から始めたいため。
-    @mode = current_user.mode
-    if @mode.nil?
-    else
-      @mode.destroy
-    end
     logout
     flash[:success]="ログアウトしました"
     # binding.pry

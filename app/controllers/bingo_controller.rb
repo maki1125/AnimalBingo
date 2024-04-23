@@ -4,7 +4,7 @@ class BingoController < ApplicationController
   def play
     #flash[:notice] = "ビンゴしましょう"
     #モード選択
-    @quiz = current_user.quiz
+   
 
     if logged_in?
       @mode = current_user.mode
@@ -33,19 +33,21 @@ class BingoController < ApplicationController
       end
     end
     #絵の選択
-    @pictures = Animal.first(30).sample(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
-    @pictures2 = Animal.first(30).sample(@mass*@mass)
+    @quiz = current_user.quiz
+
+    @pictures = Animal.first(30+@quiz.animal_quiz).sample(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
+    @pictures2 = Animal.first(30+@quiz.animal_quiz).sample(@mass*@mass)
     if @favorite_btn.present?
       case @favorite_btn
       when 1 #"どうぶつ"
-        @pictures = Animal.first(30).sample(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
-        @pictures2 = Animal.first(30).sample(@mass*@mass)
+        @pictures = Animal.first(30+@quiz.animal_quiz).sample(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
+        @pictures2 = Animal.first(30+@quiz.animal_quiz).sample(@mass*@mass)
       when 2 #"さかな"
-        @pictures = Fish.order("RAND()").limit(@mass*@mass+1)
-        @pictures2 = Fish.order("RAND()").limit(@mass*@mass)
+        @pictures = Fish.first(30+@quiz.fish_quiz).sample(@mass*@mass+1)
+        @pictures2 = Fish.first(30+@quiz.fish_quiz).sample(@mass*@mass)
       when 3 #"きょうりゅう"
-        @pictures = Dinosaur.order("RAND()").limit(@mass*@mass+1)
-        @pictures2 = Dinosaur.order("RAND()").limit(@mass*@mass)
+        @pictures = Dinosaur.first(30+@quiz.dinosaur_quiz).sample(@mass*@mass+1)
+        @pictures2 = Dinosaur.first(30+@quiz.dinosaur_quiz).sample(@mass*@mass)
       end
     end
         
