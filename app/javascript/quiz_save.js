@@ -17,7 +17,7 @@ if (ok_num>0){
   resultElement.style.color = "red"; // 赤色に設定
   //新しく追加する仲間の確認
   if (new_num>0){//新しく追加する仲間がいる。
-    addElement.textContent = `新しく下の${new_num}匹が仲間に加わりました！ビンゴカードに登場するよ！`
+    addElement.textContent = `新しく下の${new_num}匹が仲間に加わりました！コレクションで確認しよう！`
     cardElement.style.display = 'flex';//カードを表示させる。 
     if (new_num!=ok_num) {
       addElement2.textContent = `これで全ての仲間を集めました!おめでとう!!`  
