@@ -1,0 +1,73 @@
+.container{/*要素を縦に並べる*/
+  flex-direction: column;
+  position: relative;
+}
+
+.card {
+  display: flex;
+  justify-content: center; /* 横方向中央に配置 */
+  align-items: center; /* 縦方向中央に配置 */
+  flex-direction: row; /* ラベルを横に並べる */
+  background-color: rgb(232, 226, 226);
+  padding:10px 10px 0 10px;
+  margin-bottom:20px;
+}
+
+label {
+  flex: 1;
+  width: 100px; /* 正方形の幅を設定 */
+  height: 100px; /* 正方形の高さを設定 */
+  display: flex; /* 中央配置をするために flexbox を使う */
+  justify-content: center; /* 横方向中央に配置 */
+  align-items: center; /* 縦方向中央に配置 */
+  border: 1px solid black; /* 黒色の枠線を追加 */
+  background-color: white;
+}
+.gray{
+  background-color: #b9deff;
+}
+.ok{
+  background-color: orange;
+}
+
+.img {
+  width: 80%; /* 画像が親要素に合わせて拡大されるようにする */
+  height: 80%; /* ラベルの高さに合わせて画像の高さを調整 */
+  object-fit: contain; //アスペクト比を保ったまま表示
+}
+
+.img:hover{
+  transform: scale(1.2); /* ホバー時に画像を少し拡大 */
+}
+
+.custom-radio {/* ラジオボタンの非表示 */
+  display: none;
+}
+.mode-footer{//フッターの表示が変になるため非表示にする
+  display: none;
+}
+
+/* 画面の中央に配置するためのスタイル */
+.centered {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
+.answer{
+  font-size: 50px;
+}
+
+.sentence{
+  font-size: 20px;
+  display: flex;
+}
+.red{
+  color:red;
+}
+
+.blue{
+  color:blue;
+}

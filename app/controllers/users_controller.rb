@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-        params.require(:user).permit(:email, :password, :name)
+    params.require(:user).permit(:email, :password, :name)
 #Task.newで作られたparams[:user]からemail、password、password_confirmation、first_name,last_nameだけを受け取るようにする。
    end
 end

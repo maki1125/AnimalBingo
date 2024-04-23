@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" /> 
+  <title>collection</title>
+  <%= stylesheet_link_tag 'quiz_play', :media => "all" %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <% content_for :js do %>
+    <%= javascript_import_module_tag "quiz_play" %>
+  <% end %>
+</head>
+<body>
+ 
+  <div class="container">
+
+    <h1>クイズ</h1>
+    <p class="question_no">問題no</p>
+    <div class="sentence"><p>正解数:</p><p class="ok_num blue">数字</p></div>
+    <div class="sentence"><p class="name red">問題文</p><p>はどれかな？</p></div>
+    
+    <div class="card" id="card">
+      <input type="radio" id="radioButton1" class="custom-radio" name="quiz" value=0>
+      <label for="radioButton1" class="label0">
+        <img id="img1" class="img" >
+      </label><br>
+
+      <input type="radio" id="radioButton2" class="custom-radio" name="quiz" value=1>
+      <label for="radioButton2" class="label1">
+        <img id="img2" class="img" >
+      </label><br>
+
+      <input type="radio" id="radioButton3" class="custom-radio" name="quiz" value=2>
+      <label for="radioButton3" class="label2">
+        <img id="img3" class="img" >
+      </label><br>
+    </div>
+
+    <button class="btn">決定</button>
+    <p class="answer">答え</p>
+  <div> 
+ <script> //javascriptにデータを渡す。
+  quiz_select = "<%= @quiz.quiz_select %>"
+  img_ass = <%= raw @pictures_img.map { |path| asset_path("#{path}") }.to_json %>;
+  pictureName = <%= raw @pictures_name.to_json %>
+ </script>   
+</body>
+</html>

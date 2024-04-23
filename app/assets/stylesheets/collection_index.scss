@@ -68,6 +68,10 @@
     /*border-radius: 10px;*/
     /*margin:0.5px;*/
 }
+.noFriend{
+  /*カードのマス*/
+    background-color: rgb(216, 216, 216);
+}
 .square::before{
   /*擬似要素で正方形のマスを作成*/
   content: '';
@@ -94,6 +98,10 @@
   /* ホバー時の画像スタイル */
   transform: scale(1.2); /* ホバー時に画像を少し拡大 */
 }
+.noFriend:hover img {
+  /* ホバー時の画像スタイル */
+  transform: scale(1.0); /* ホバー時に画像を少し拡大 */
+}
 
 /*詳細*/
 .LeftContent{
@@ -101,17 +109,10 @@
   text-align: center;
   margin-right: 15px;
 }
-#name{
-  top:auto;
-}
 .RightContent{
   flex: 1;
   text-align: center;
   margin-right: 15px;
 }
-#back {
-  width: 10em;
-  height: 3em;
-  bottom:auto;
-}
+
 

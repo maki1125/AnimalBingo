@@ -41,9 +41,10 @@ function createBingoCard(outer, images,cardId, names){
             //var x = index%MASS;
             //var y = Math.floor(index/MASS);
             //ルーレットの動物と一致しているか確認
-            //if (name_ruret==clickName){ //動物名だけ抜き出す。
+            if (name_ruret==clickName){ //動物名だけ抜き出す。
                 headingElement.textContent = "正解！";// テキストを変更
-                divSquare.classList.add('gray'); divSquare.onclick = null;//色をつける
+                divSquare.classList.add('gray'); 
+                divSquare.onclick = null;//色をつける
                 if (del==0){ //1回だけ削除するため
                     ruret_names.splice(random,1) //クリックされたものは、ルーレットの一覧から削除していく。
                     ruret_images.splice(random,1) //クリックされたものは、ルーレットの一覧から削除していく。
@@ -65,14 +66,14 @@ function createBingoCard(outer, images,cardId, names){
                     $(div).animate({top: '-=40'},100);
                     $(div).animate({top: '+=20'},100);
                 };
-            //}else{
+            }else{
                 headingElement.textContent = "違うよ、、、";// テキストを変更
                 $(div).animate({left: '+=20'},100);//左右に振るわせる。
                 $(div).animate({left: '-=40'},100);
                 $(div).animate({left: '+=40'},100);
                 $(div).animate({left: '-=40'},100);
                 $(div).animate({left: '+=20'},100);
-            //}
+            }
         });
     }
 };
