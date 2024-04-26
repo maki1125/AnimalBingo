@@ -1,8 +1,8 @@
-console.log(quiz_select)
-console.log("ok_num",ok_num)
-console.log("new_num",new_num)
-console.log("friend_num",friend_num)
-console.log("imgass",imgass)
+//console.log(quiz_select)
+//console.log("ok_num",ok_num)
+//console.log("new_num",new_num)
+//console.log("friend_num",friend_num)
+
 
 let resultElement = document.querySelector('.result');
 let addElement = document.querySelector('.add');
@@ -10,7 +10,7 @@ let addElement2 = document.querySelector('.add2');
 let addElement3 = document.querySelector('.add3');
 let cardElement = document.querySelector('.card');
 
-addElement3.textContent = `${parseInt(friend_num)+30}`
+addElement3.textContent = `${parseInt(friend_num)+30}` //仲間の数
 
 if (ok_num>0){
   resultElement.textContent = `${ok_num}問正解！`

@@ -17,7 +17,7 @@
   <p class = "add">新しく５匹が仲間に加わりました！</p>
   <p class = "add2"></p>
   <div class="card"></div>
-  <div class="sentence"><p>仲間の数:</p><p class="add3 blue">数字</p></div>
+  <div class="sentence"><p><%=@picture_mode%>の仲間の数:</p><p class="add3 blue">数字</p><p>/<%=@allfriend%></p></div>
   <%= button_to "クイズに再挑戦", {controller: 'quizzes', action: 'new'}, method: :get,  class: "btn" %>
 </div>
 

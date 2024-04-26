@@ -3,25 +3,20 @@ class BingoController < ApplicationController
   
   def play
     #flash[:notice] = "ビンゴしましょう"
-    #モード選択
-   
 
-    if logged_in?
+    #ログインにより処理分ける
+    if logged_in?#ユーザー登録した人
+      @quiz = current_user.quiz
       @mode = current_user.mode
-      #初回ログインの場合モード選択まだのため
-      if @mode.nil?
-        @play_btn = 1
-        @favorite_btn = 1
-        @level_btn = 1
-      else
-        @play_btn = @mode.play_mode
-        @favorite_btn = @mode.picture_mode
-        @level_btn = @mode.level_mode
-      end
-      #binding.pry
+      @play_btn = @mode.play_mode
+      @favorite_btn = @mode.picture_mode
+      @level_btn = @mode.level_mode
+    else #ユーザー登録無しで遊ぶ人
+      @mass = 3
+      friend = 0
     end
+
     #レベルの選択
-    @mass = 3
     if @level_btn.present?
       case @level_btn
       when 1 #"やさしい(3*3マス)"
@@ -32,31 +27,32 @@ class BingoController < ApplicationController
         @mass = 5
       end
     end
-    #絵の選択
-    @quiz = current_user.quiz
 
-    @pictures = Animal.first(30+@quiz.animal_quiz).sample(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
-    @pictures2 = Animal.first(30+@quiz.animal_quiz).sample(@mass*@mass)
+    #絵の選択
     if @favorite_btn.present?
       case @favorite_btn
       when 1 #"どうぶつ"
-        @pictures = Animal.first(30+@quiz.animal_quiz).sample(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
-        @pictures2 = Animal.first(30+@quiz.animal_quiz).sample(@mass*@mass)
+        select_table = Animal
+        friend = @quiz.animal_quiz
       when 2 #"さかな"
-        @pictures = Fish.first(30+@quiz.fish_quiz).sample(@mass*@mass+1)
-        @pictures2 = Fish.first(30+@quiz.fish_quiz).sample(@mass*@mass)
+        select_table = Fish
+        friend = @quiz.fish_quiz
       when 3 #"きょうりゅう"
-        @pictures = Dinosaur.first(30+@quiz.dinosaur_quiz).sample(@mass*@mass+1)
-        @pictures2 = Dinosaur.first(30+@quiz.dinosaur_quiz).sample(@mass*@mass)
+        select_table = Dinosaur
+        friend = @quiz.dinosaur_quiz
       end
+    else
+      select_table = Animal
+      friend = 0
     end
-        
+    @pictures = select_table.first(30+friend).sample(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
+    @pictures2 = select_table.first(30+friend).sample(@mass*@mass)
     @image_paths = @pictures.map(&:img) #データの順を同じにするためにpluckではくmapを使用。
     @image_paths2 = @pictures2.map(&:img) #2枚目のビンゴカード用データ
     @names = @pictures.map(&:name)
     @names2 = @pictures2.map(&:name)
     
-    # binding.pry
+    #遊び方の選択
     if @play_btn==2
       render 'bingo/play2'
     else
