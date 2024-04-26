@@ -25,8 +25,9 @@
           <%= f.password_field :password, class: 'form-control' %>
         </div>
         <div class="actions">
-          <%= f.submit 'ログイン', class: 'btn btn-primary' %>
+          <%= f.submit 'ログイン', class: 'btn' %>
         </div>
+        <%= link_to 'Googleでログイン', auth_at_provider_path(provider: :google), class: "btn_google" %>
       <% end %>
       <div class='text-center'>
         <%= link_to '登録ページへ', new_user_path %>
@@ -36,6 +37,7 @@
       </div>
     </div>
   </div>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </div>
 </body>
 </html>

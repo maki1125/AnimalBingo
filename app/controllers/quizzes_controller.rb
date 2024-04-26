@@ -79,13 +79,19 @@ class QuizzesController < ApplicationController
       when 1 #"どうぶつ"
         num = current_user.quiz.animal_quiz
         newFriends = Animal.offset(30+num-new_num).limit(new_num); #画像がない場合は空となる。
+        @allfriend=Animal.all.count
+        @picture_mode="どうぶつ"
       when 2 #"さかな"
         num = current_user.quiz.fish_quiz
         newFriends = Fish.offset(30+num-new_num).limit(new_num); #画像がない場合は空となる。
+        @allfriend=Fish.all.count
+        @picture_mode="さかな"
       when 3 #"きょうりゅう"
         num = current_user.quiz.dinosaur_quiz
         newFriends = Dinosaur.offset(30+num-new_num).limit(new_num); #画像がない場合は空となる。
-    end
+        @allfriend=Dinosaur.all.count
+        @picture_mode="きょうりゅう"
+      end
     @friendNum = num
     @new_friend_img = newFriends.map(&:img) #imgのデータ
   end

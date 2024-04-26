@@ -4,7 +4,9 @@ class User < ApplicationRecord
   has_one :mode, dependent: :destroy
   has_one :quiz, dependent: :destroy #ユーザーはquizを一つしか持たない。ユーザーが削除されたらquizも削除される。
   after_create :create_default_quiz,:create_default_mode #ユーザ作成時にquizの初期データを作成する。
-  
+  has_many :authentications, :dependent => :destroy #googleログイン
+  accepts_nested_attributes_for :authentications
+
   # それぞれの絵柄の一覧を取得する
   def animals
     pictures.where(type: 'Animal')
@@ -21,6 +23,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 1 }, if: -> { new_record? || changes[:crypted_password] }
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true, length: { maximum: 255 }
+
+
   private
   def create_default_quiz
     build_quiz(
