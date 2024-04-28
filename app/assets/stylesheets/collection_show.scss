@@ -1,21 +1,49 @@
-.LeftContent {
-  display: flex;
-  flex-direction: column; /* 要素を縦に配置する */
-  align-items: center; /* 要素を中央揃えにする */
-  margin: 0 30px 0 0;
+/*要素を縦に並べる*/
+.container{
+  flex-direction: column;
 }
+
 .LeftContent p{
   font-size:30px
 }
-.square{
-  display: flex;
+.LeftContent {
+  display:flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width:250px;
-  height:250px;
+
+}
+.square{
+  justify-content: center;
+  align-items: center;
+  width:200px;
+  height:200px;
 }
 .square img {
   /* 画像のスタイル */
   max-width: 80%; /* 画像の最大幅をマスの幅に合わせる */
   max-height: 80%; /* 画像の最大高さをマスの高さに合わせる */
+}
+
+#map {
+  height: 300px;
+  width: 500px;
+}
+
+h1 {
+  margin-top:100px;
+}
+
+.place{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.custom-info{
+  height: 50px;
+  width: 100px;
+  text-align: left;
 }
