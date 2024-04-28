@@ -48,16 +48,17 @@ class CollectionsController < ApplicationController
     case pic
     when "どうぶつ"
       @animal = Animal.offset(params[:id].to_i - 1).first #pictureのIDは項目関係なく連番でつけられているため、offset使用してそれぞれの項目の何番目のデータを持ってくるというようにしている。
-      places = @animal.places
-      @adresses = places.map(&:adress)
-      @names = places.map(&:name)
-      @urls = places.map(&:url)
     when "さかな"
       @animal = Fish.offset(params[:id].to_i - 1).first
+   
     when "きょうりゅう"
       @animal = Dinosaur.offset(params[:id].to_i - 1).first
       # binding.pry
     end
+    places = @animal.places
+    @adresses = places.map(&:adress)
+    @names = places.map(&:name)
+    @urls = places.map(&:url)
   end
 
   def save
