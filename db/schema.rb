@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_25_034717) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_27_131939) do
   create_table "authentications", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider", null: false
@@ -46,6 +46,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_25_034717) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "places", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "picture_id", null: false
+    t.string "adress"
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_places_on_picture_id"
+  end
+
   create_table "quizzes", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "quiz_select"
@@ -79,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_25_034717) do
   end
 
   add_foreign_key "modes", "users"
+  add_foreign_key "places", "pictures"
   add_foreign_key "quizzes", "users"
   add_foreign_key "user_pictures", "pictures"
   add_foreign_key "user_pictures", "users"

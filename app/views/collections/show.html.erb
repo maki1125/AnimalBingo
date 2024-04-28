@@ -7,17 +7,21 @@
   <% content_for :js do %>
     <%= javascript_import_module_tag "show" %>
   <% end %>
+  <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyB1S04btnZh9VtGj5tBQS3jSWmMprFSa8Y", v: "weekly"});</script>
+
 </head>
 <body>
   <div class="container">
-    <div class="LeftContent">
+  <div class="row">
+    <div class="LeftContent col-4">
       <p id="name"><%= @animal.name %></p>
       <div class="square">
       <%= image_tag @animal.img %>
       </div>
       <button onclick="window.history.back();" id="back" class="btn">戻る</button>
     </div>
-    <div class="RightContent">
+    <div class="RightContent col-8">
       <iframe width="560" height="315" 
       src="<%= @animal.youtube_url %>"
       title="YouTube video player" frameborder="0" allow="accelerometer; 
@@ -25,4 +29,22 @@
       </iframe>
     </div>
   </div>
+  <div class="row">
+   <div class="col-12 place">
+    <h1>見に行ってみよう！</h1>
+    <p></p>
+    <div id='map'></div>
+    <p>この動物が見られる場所をご意見番から教えて！</p>
+  </div>
+  </div>
+  </div>
+
+  <script> //javascriptにデータを渡す。
+   adresses = <%= raw @adresses.map { |adress| "#{adress}" }.to_json %>;
+   names = <%= raw @names.map { |name| "#{name}" }.to_json %>;
+   urls = <%= raw @urls.map { |url| "#{url}" }.to_json %>;
+   //adresses = <%= @adresses %>;
+    
+    </script>
+  
 </body>
