@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :user_pictures
+  has_many :user_pictures, dependent: :destroy
   has_many :pictures, through: :user_pictures
   has_one :mode, dependent: :destroy
   has_one :quiz, dependent: :destroy #ユーザーはquizを一つしか持たない。ユーザーが削除されたらquizも削除される。
