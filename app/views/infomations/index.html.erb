@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>お知らせ</title>
+     <%= stylesheet_link_tag 'infomation', :media => "all" %>
+</head>
+<body>
+<div class="row info">
+
+    <div class="col-12">
+
+        <% if @infomations.present? %>
+          <%= render @infomations %>
+        <% else %>
+          <p>お知らせはありません。</p>
+        <% end %>
+        <%= paginate @infomations %>
+
+    </div>
+</div>
+</body>
+</html>

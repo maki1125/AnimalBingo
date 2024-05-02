@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
+  #namespace :admin2 do
+    #get 'upload' => 'pictures#new'
+  #end
   #トップページ
   root "static_pages#top" 
   get "privacy" => "static_pages#privacy"
@@ -12,9 +14,6 @@ Rails.application.routes.draw do
 
   #ビンゴページ
   get "bingo" => "bingo#play" 
-
-  #お問い合わせ
-  resources :contacts, only: [:new, :create] 
 
   #ログイン関係
   get 'login', to: 'user_sessions#new' 
@@ -46,4 +45,10 @@ Rails.application.routes.draw do
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" 
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
+  #お知らせ
+  resources :infomations, only: %i[index]
+
+  #お問い合わせ
+  resources :contacts, only: [:new, :create] 
 end
