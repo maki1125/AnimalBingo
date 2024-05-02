@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <%= stylesheet_link_tag 'user_session', :media => "all" %>
+</head>
+<body>
+<div class="container">
+  <div class="row2">
+    <div>
+      <h1>ご意見・ご感想</h1>
+      <%= form_with model: @contact, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label "※返信が必要な場合はメールアドレスを記載ください。" %>
+          <%= f.text_area :content, class: 'form-control', size: "100x10" %>
+        </div>
+        <%= f.submit '完了', class: 'btn btn-primary' %>
+      <% end %>
+      <%= link_to 'トップ画面に戻る', root_path %>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -21,4 +21,12 @@
   color: black;
 }
 
+.container{
+
+ 
+  position: relative; //フッターを下に固定するために追加
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
 
