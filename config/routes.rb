@@ -49,6 +49,6 @@ Rails.application.routes.draw do
   #お知らせ
   resources :infomations, only: %i[index]
 
-  #お問い合わせ
-  resources :contacts, only: [:new, :create] 
+  #ご意見・ご感想
+  resources :contacts, only: %i[new create]
 end

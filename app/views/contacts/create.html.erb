@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <%= stylesheet_link_tag 'user_session', :media => "all" %>
+</head>
+<body>
+<div class="container">
+  <div class="row2">
+    <div>
+      <h1>ご意見・ご感想</h1>
+      <p>ご意見・ご感想ありがとうございました。
+      <br>以下内容で承りました。</p>
+      <textarea readonly spellcheck="false" rows="10" cols="50"><%= @contact.content%>
+      </textarea>
+      </div>
+      <%= link_to 'トップ画面に戻る', root_path %>
+    </div>
+  </div>
+</div>
+</body>
+</html>
