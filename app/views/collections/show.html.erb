@@ -19,7 +19,7 @@
       <div class="square">
       <%= image_tag @animal.img %>
       </div>
-      <button onclick="window.history.back();" id="back" class="btn">戻る</button>
+      <button id="back" class="btn">戻る</button>
     </div>
     <div class="RightContent col-8">
       <iframe width="560" height="315" 
@@ -43,7 +43,7 @@
    adresses = <%= raw @adresses.map { |adress| "#{adress}" }.to_json %>;
    names = <%= raw @names.map { |name| "#{name}" }.to_json %>;
    urls = <%= raw @urls.map { |url| "#{url}" }.to_json %>;
-   //adresses = <%= @adresses %>;
+   page = <%= @page %>;
     
     </script>
   

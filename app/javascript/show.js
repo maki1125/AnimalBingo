@@ -1,5 +1,6 @@
 console.log("collection/show")
-console.log(adresses)
+console.log(page)
+
 
 //地図の上のメッセージ
 let hedingPlace = document.querySelector('.place p');// テキストを表示する要素を取得('place-text');// テキストを表示する要素を取得
@@ -79,4 +80,11 @@ async function initMap() {
 }
 
 initMap();
+
+// 戻るボタンの要素を取得・イベント追加
+var backButton = document.getElementById('back');
+backButton.addEventListener('click', function() {
+    var url =  `/collections?page=${page}`;
+    window.location.href = url;// リダイレクト
+});
 
