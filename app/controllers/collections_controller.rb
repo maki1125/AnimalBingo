@@ -4,12 +4,17 @@ class CollectionsController < ApplicationController
   def index
     #現在のモードで最初の表示のコレクション一覧を変化させる。
     @mode = current_user.mode 
+    @page = params[:page]#詳細から戻った時にあるデータ
     #初回ログインの場合モード選択未定のため
-    if @mode.nil?
-      @favorite_btn = 1
-    else
+    #if @mode.nil?
+      #@favorite_btn = 1
+    #else
       @favorite_btn = @mode.picture_mode
+    #end
+    if @page.nil? 
+      @page=1
     end
+    
     #選択絵柄ごとの処理
     case @favorite_btn
     when 1 #"どうぶつ"
@@ -45,6 +50,7 @@ class CollectionsController < ApplicationController
 
   def show
     pic = params[:pic]
+    @page = params[:page]
     case pic
     when "どうぶつ"
       @animal = Animal.offset(params[:id].to_i - 1).first #pictureのIDは項目関係なく連番でつけられているため、offset使用してそれぞれの項目の何番目のデータを持ってくるというようにしている。

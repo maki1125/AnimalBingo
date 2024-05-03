@@ -1,4 +1,8 @@
 console.log("animal_quiz ",animal_quiz )
+let page = page2;
+let page_add = (parseInt(page)-1)*20 //ページ→IDへ変換
+console.log("page", page2);
+
 let colnum //指定した絵柄のコレクション一覧　ex[1,4,7]
 let colimgass //指定した絵柄のコレクションのアセット変換したimgパスの一覧
 const COLUMN_LENGTH = 4; //表示マスの行数
@@ -23,28 +27,32 @@ for(let i = 1; i <= COLUMN_LENGTH * ROW_LENGTH; i++){// 画像をマス上に表
   divSquare.classList.add('square'); //作成したセルにsquareクラスを追加。
   img.setAttribute('id', `${i}`);
   //bingoリストにあるかどうか確認＋画像の表示
-  var colcount=0; //一覧表示時に使用するカウント。colimgassの要素指定に使用。
-  pictureData(pic_mode)//上ボタンで選択されている絵柄のデータを取得
+  //var colcount=0; //一覧表示時に使用するカウント。colimgassの要素指定に使用。
+  
+  //pictureData(pic_mode)//上ボタンで選択されている絵柄のデータを取得
+  
   //クイズで仲間にしたものを表示
-  if (i<friend){
-    img.src = all_imgass[i-1]
-  }else{
-    img.src = question_imgass; //はてなマーク
-  }
+  //if (i<friend){
+    //img.src = all_imgass[i-1]
+  //}else{
+    //img.src = question_imgass; //はてなマーク
+  ///}
   //ビンゴしたものに動きをつける
-  if (colnum.includes(i.toString())){
-    img.classList.add("ok"); //これによって絵の動きを変える。
-    divSquare.classList.add("ok");
-    //img.src = colimgass[colcount]; // 画像のパスを設定.htmlで変数作成。imagePathsでは画像表示できなくて、asset_pathに変換したものがcolimgass.ビンゴした画像のデータだけ。
-    //colcount += 1; 
-  }else{
-    img.classList.remove("ok");
-    divSquare.classList.remove("ok");
-  }
+  //if (colnum.includes(i.toString())){
+    //img.classList.add("ok"); //これによって絵の動きを変える。
+    //divSquare.classList.add("ok");
+  //}else{
+    //img.classList.remove("ok");
+    //divSquare.classList.remove("ok");
+  //}
+
   addClickEvent(img,i) //ますをクリックした時の動きを追加 
 }
+pictureData(pic_mode)
+changeImage()
 //ビンゴカードの並びの設定
 $('.square').css('flex', `0 0 ${squareWidth}%`);
+
 
 // 画像に動きをつける関数
 function addClickEvent(img,index) {
@@ -68,17 +76,25 @@ img.addEventListener('click', function(event) {
 //詳細ページ表示
 function handleImageClick(imageId) {
   // クリックされた画像のIDを使用して詳細ページのURLを構築
-  const detailPageUrl = `/collections/${imageId+(parseInt(page)-1)*20}?pic=${pic}`;
+  const detailPageUrl = `/collections/${imageId+(parseInt(page)-1)*20}?pic=${pic}&page=${page}`;
   // 詳細ページへリダイレクト
   window.location.href = detailPageUrl;
 }
-
+//詳細->一覧の時の下ボタンの処理
+const buttons = document.querySelectorAll('.btn2');
+let btn2_count = 1
+// すべてのボタンの色を元に戻す
+buttons.forEach(btn => {
+  btn.classList.remove('selected');
+  if (btn2_count==page){
+    btn.classList.add('selected');
+  }
+  btn2_count += 1;
+});
 //下ボタンの要素の取得（ページの選択）
-let page = 1;
-let page_add = 0;
-let page_btn = document.getElementById('pg1');//下のページ選択ボタンの初期選択の色変更
-page_btn.classList.add('selected');
-const buttons = document.querySelectorAll('.btn2');// ボタン要素を取得する
+//let page_add = 0;
+
+// ボタン要素を取得する
 buttons.forEach(button => {
   button.addEventListener('click', () => {
     // すべてのボタンの色を元に戻す
@@ -94,6 +110,7 @@ buttons.forEach(button => {
   });
 });
 
+
 //上ボタンの要素（絵柄の選択）
 const pic_buttons = document.querySelectorAll('.btn1');//ボタンの要素取得
 pic_buttons.forEach(button => {
@@ -108,6 +125,7 @@ pic_buttons.forEach(button => {
     page_buttons.forEach(btn => {// すべてのボタンの色を元に戻す
       btn.classList.remove('selected');
     });
+    let page_btn = document.getElementById('pg1');//下のページ選択ボタンの初期選択の色変更
     page_btn = document.getElementById('pg1');//下のページ選択ボタンの初期選択の色変更
     page_btn.classList.add('selected');
     // クリックされたボタンのテキストを変数に代入する
@@ -156,7 +174,7 @@ function pictureData(pic) {
 //マス一覧画像の変更
 function changeImage(){
   let divSquare = document.querySelectorAll('.square'); //htmlに設定
-  console.log("divSquareall",divSquare);
+  //console.log("divSquareall",divSquare);
   for(let i = 1; i <= COLUMN_LENGTH * ROW_LENGTH; i++){
     let imgElement = document.getElementById(i);
     //クイズで集めた仲間かどうか確認
