@@ -1,6 +1,7 @@
 /*要素を縦に並べる*/
 .container{
   flex-direction: column;
+  //height: 50%;
 }
 
 /*上ボタン（絵柄選択ボタン）*/
@@ -57,7 +58,8 @@
   flex-wrap: wrap;
   background-color: green;
   padding: 10px;
-  min-width:500px;
+  width:90%;
+  //min-width:500px;
   max-width:500px;
 }
 .square{

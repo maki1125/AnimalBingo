@@ -2,10 +2,9 @@
 
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  //justify-content: center;
+  //align-items: center;
+  height: 800px; //背景が伸びないようにするため。
   background-image: url('background.jpg'), url('background2.jpg'); /* 画像のパスを指定 */
   background-repeat: no-repeat, repeat;
   background-size: cover; /* 画像を背景にフィットさせる */
@@ -13,28 +12,34 @@ body {
 }
 
 header {
-  position: absolute;
+  //position: absolute;
   width: 100%;
-  padding: 0px 4% 0px;
-  top: 0;
-  background-color: rgb(232, 226, 226);
-  z-index: 100
+  //padding: 0px 4% 0px;
+  //top: 0;
+  //background-color: rgb(232, 226, 226);
+  //z-index: 100;
+}
+
+//ヘッダーのナビゲーションの設定
+.navbar-light .navbar-nav .nav-link {
+  color:#007bff;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+  color: rgb(3, 3, 156);
+  text-decoration: underline;
+}
+.navbar-light .navbar-nav .nav-item.active .nav-link{
+  color: rgb(3, 3, 156);
+  font-weight: bold;
 }
 
 footer {
-  text-align: center;
+  //text-align: center;
   background-color: rgb(232, 226, 226);
   width: 100%;
   text-align: center;
   height: 70px;
-  bottom: 0;
-  
-}
-.nav{
-  margin:auto;
-  height: 100%; /* 要素の高さを100%に設定 */
-  width:700px;/*広く設定しないとリンク文字が折り返される*/
-  justify-content: flex-end;
+  //bottom: 0;
 }
 
 .container {
@@ -43,11 +48,13 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 100px; /* ヘッダーの高さ分のマージンを追加 */
-  margin-bottom: 200px; /* フッターの高さ分のマージンを追加 */
-  //min-height: calc(100vh - 40px);
+  //margin-top: 100px; /* ヘッダーの高さ分のマージンを追加 */
+  //margin-bottom: 200px; /* フッターの高さ分のマージンを追加 */
+  min-height: calc(100vh - 180px);
   
 }
+
+//ボタンの設定
 .btn{
   background-color: rgb(230, 150, 30); /* ホバー時の背景色 */
   color: black; /* ホバー時の文字色 */
@@ -70,12 +77,21 @@ input[type="submit"]:hover{
   color: white;
 }
 
+//プラポリ・利用規約の設定
 article{
   text-align: left;
 }
+
+//フラッシュメッセージの設定
 .flash{
-  margin-top:70px;
+  //margin-top:70px;
   text-align: center;
+}
+
+form{
+  //width:80%; 
+  //max-width:500px;
+
 }
 
 

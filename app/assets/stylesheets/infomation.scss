@@ -1,8 +1,13 @@
+.container{
+  flex-direction: column;
+  text-align: left;
+}
 .info{
-  margin:100px 100px 0px 100px;
-  white-space: pre-wrap;//日付、タイトル、内容の行の隙間を開けるため。
+  //margin:0px 100px 0px 100px;
+  white-space: pre-wrap;//内容の改行を表示するため。
   position: relative; //フッターを下に固定するために追加
   min-height: 100vh;
+  width: 80%;
   padding-bottom: 40px;
 }
 .date{

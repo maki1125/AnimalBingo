@@ -16,7 +16,10 @@
   <p class = "result">全問正解！！</p>
   <p class = "add">新しく５匹が仲間に加わりました！</p>
   <p class = "add2"></p>
-  <div class="card"></div>
+  <div class="card">
+    <div class="outer"  id="outer">
+    </div>
+  </div>
   <div class="sentence"><p><%=@picture_mode%>の仲間の数:</p><p class="add3 blue">数字</p><p>/<%=@allfriend%></p></div>
   <%= button_to "クイズに再挑戦", {controller: 'quizzes', action: 'new'}, method: :get,  class: "btn" %>
 </div>
@@ -27,7 +30,8 @@
   new_num = "<%=@quiz.new_num %>"
   friend_num = "<%=@friendNum %>"
   imgass = <%= raw @new_friend_img.map { |path| asset_path("#{path}") }.to_json %>;
-
+  //はてなマーク
+  question_imgass = "<%= asset_path("question101.png") %>";
  </script>   
 </body>
 </html>
