@@ -59,6 +59,8 @@ footer {
   background-color: rgb(230, 150, 30); /* ホバー時の背景色 */
   color: black; /* ホバー時の文字色 */
   border: 1px solid #ccc;
+  //padding:20px;
+  font-size:25px;
 }
 .btn:hover {
   color: white;
@@ -79,6 +81,7 @@ input[type="submit"]:hover{
 
 //プラポリ・利用規約の設定
 article{
+  margin:50px 0 50px 0;
   text-align: left;
 }
 
@@ -88,11 +91,7 @@ article{
   text-align: center;
 }
 
-form{
-  //width:80%; 
-  //max-width:500px;
 
-}
 
 
 

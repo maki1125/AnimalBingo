@@ -84,7 +84,7 @@ initMap();
 // 戻るボタンの要素を取得・イベント追加
 var backButton = document.getElementById('back');
 backButton.addEventListener('click', function() {
-    var url =  `/collections?page=${page}`;
+    var url =  `/collections?page=${page}&pic=${pic_mode}`;
     window.location.href = url;// リダイレクト
 });
 

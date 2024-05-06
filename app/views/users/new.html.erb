@@ -23,6 +23,10 @@
           <%= f.label "パスワード" %>
           <%= f.password_field :password, class: 'form-control' %>
         </div>
+        <div class="form-group">
+          <%= f.label "パスワード確認" %>
+          <%= f.password_field :password_confirmation, class: 'form-control'  %>
+        </div>
         <%= f.submit '登録', class: 'btn btn-primary' %>
       <% end %>
       <%= link_to 'Googleでログイン', auth_at_provider_path(provider: :google), class: "btn_google" %>

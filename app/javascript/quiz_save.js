@@ -18,23 +18,37 @@ if (ok_num>0){
   //新しく追加する仲間の確認
   if (new_num>0){//新しく追加する仲間がいる。
     addElement.textContent = `新しく下の${new_num}匹が仲間に加わりました！コレクションで確認しよう！`
-    cardElement.style.display = 'flex';//カードを表示させる。 
+    cardElement.style.display = 'flex';//カードを表示させる。
+ 
+    imgShow();
     if (new_num!=ok_num) {
       addElement2.textContent = `これで全ての仲間を集めました!おめでとう!!`  
     }
   }else{
     addElement.textContent = `全ての仲間を集めました!おめでとう!!`
   }
+  
+
 }else{//正解数０の場合
   resultElement.textContent = `${ok_num}問正解！`
   addElement.textContent = "正解を目指してクイズに再挑戦しよう！"
   resultElement.style.color = "blue"; // 赤色に設定
 }
-imgShow();
+
+
 
 // 各画像URLに対して処理を繰り返す
 function imgShow(){
 //imgass.forEach(imagePath => {
+//if(ok_num>0){
+    // 画面サイズに応じて変数を設定
+    let squareWidth;
+    if (window.innerWidth > 500) { // 例えば、768pxより大きい場合
+      squareWidth = 100/ok_num;
+    } else { // それ以外の場合
+      squareWidth = 33;
+  }
+  //画像表示
 for(let i = 0; i < 5; i++){
   //要素作成
   let divSquare = document.createElement('div');//セルのdiv要素作成。
@@ -55,16 +69,11 @@ for(let i = 0; i < 5; i++){
   //col.classList.add('col-sm-6');
  
 }
+}
 //});
-console.log(window.getComputedStyle(cardElement).width/(5/ok_num));
+//console.log(window.getComputedStyle(cardElement).width/(5/ok_num));
 //cardElement.style.width = `${parseInt(window.getComputedStyle(cardElement).width)/(5/ok_num)}px`; // 100pxはsquare要素の幅に合わせた適切な幅を設定
-}
-// 画面サイズに応じて変数を設定
-let squareWidth;
-if (window.innerWidth > 500) { // 例えば、768pxより大きい場合
-  squareWidth = 100/ok_num;
-} else { // それ以外の場合
-  squareWidth = 33;
-}
+//}
+
 
 //$('.square').css('flex', `0 0 ${squareWidth}%`);

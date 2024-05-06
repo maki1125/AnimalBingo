@@ -10,9 +10,10 @@
     <% end %>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
+      <div class="row size">
         <!-- ビンゴカード1 -->
-        <div class="bingo">
+        <div class="bingo col-12 col-lg-5 center right-contents">
             <div class="bingo-heading">
                 <h2>STARTボタンを押してね</h2>
             </div>
@@ -22,18 +23,24 @@
             </div>
         </div>
         <!-- ルーレット -->
-        <div class="roulette">
+        <div class="roulette col-12 col-lg-2">
+          <div class="row roulette-size">
+            <div class="col-6 col-md-12 center">
             <div class="ruret_text">
                 <h2>?</h2>
             </div>
             <div class="square2">
             <img id="result" class="result centering" src=<%= asset_path('question101.png') %> alt="result image">
             </div>
+          </div>
+          <div class="col-6 col-md-12 center">
             <button id="button" class="button">START</button>
+          </div>
+          </div>
         </div>
         <!-- ビンゴカード2 -->
 
-        <div class="bingo">
+        <div class="bingo col-12 col-lg-5 center right-contents">
             <div class="bingo-heading2">
                 <h2>STARTボタンを押してね</h2>
             </div>
@@ -42,7 +49,7 @@
                 </div>
             </div>
         </div>
-
+      </div>
     </div>
     
     <script> //javascriptにデータを渡す。
