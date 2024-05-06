@@ -1,24 +1,23 @@
 <footer class="mode-footer" >
+
   <div class='row'>
-      <div class='col'>
-        <%= link_to "お知らせ", infomations_path %>
-      </div>
-      <div class='col'>
-        <%= link_to "ご意見・ご感想", new_contact_path %>
-      </div>
-      <div class='col'>
-        <%= link_to "利用規約", terms_path %>
-      </div>
-      <div class='col'>
-        <%= link_to "プライバシーポリシー", privacy_path %>
-      </div>
+    <div class='col-2'>
+      <%= link_to "お知らせ", infomations_path %>
     </div>
-    <div class='row'>
-      <div class='col'>
-        <div class='copyright'>
-          <p>Copyright © 2024.どうぶつビンゴ</p>
-        </div>
-      </div>
+    <div class='col-4'>
+      <%= link_to "ご意見・ご感想", new_contact_path %>
+    </div>
+    <div class='col-2'>
+      <%= link_to "利用規約", terms_path %>
+    </div>
+    <div class='col-4'>
+      <%= link_to "プライバシーポリシー", privacy_path %>
     </div>
   </div>
+  <div class='row'>
+    <div class='col copyright'>
+        <p>Copyright © 2024.どうぶつビンゴ</p>
+    </div>
+  </div>
+
 </footer>

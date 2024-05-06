@@ -94,6 +94,8 @@ class QuizzesController < ApplicationController
       end
     @friendNum = num
     @new_friend_img = newFriends.map(&:img) #imgのデータ
+    #はてなマーク
+    @question_img = 'question101.png'
   end
 
   private

@@ -3,14 +3,23 @@ h1{
 }
 h2{
   text-align: left;
+  font-size: 25px;
+  
 }
 .radiobox {
   display: flex;
-  width: 500px;
+  width: 100%;//500px;
+  margin-bottom:20px;
   /*max-width: 2000px;*/
 }
 
+form{
+  width:80%; 
+  max-width:500px;
+}
+
 label {
+  display: inline-block;
   background-color: #b9deff;
   color: black;
   padding: 10px 10px;
@@ -18,7 +27,7 @@ label {
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
-  width: 1000px;
+  width: 100%; // 1000px;
   font-size: 15px;
 }
 

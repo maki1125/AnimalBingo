@@ -1,26 +1,33 @@
-
 <header>
 
-  <div class='row'>
-      <div class='col logo'>
-        <%= link_to image_tag("logo.png"), root_path %>
-      </div>
-      <div class="nav">
-      <div class='col'>
-          <%= link_to "ビンゴで遊ぶ", bingo_path %>
-      </div>
-      <div class='col'>
-          <%= link_to "コレクション", collections_path %>
-      </div>
-      <div class='col'>
-          <%= link_to "モード選択", new_mode_path %>
-      </div>
-      <div class='col'>
-          <%= link_to "クイズ", new_quiz_path %>
-      </div>
-      <div class='col'>
-          <%= link_to "ログイン", login_path %>
-      </div>
-      </div>
-  </div>
+  <nav class='navbar navbar-expand-lg navbar-light' style="background-color: rgb(232, 226, 226);">
+    <%= link_to image_tag("logo.png"), root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" style="color: red;" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item <%= 'active' if current_page?(bingo_path) %>">
+          <%= link_to "ビンゴで遊ぶ", bingo_path,class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(collections_path) %>">
+          <%= link_to "コレクション", collections_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(new_mode_path) %>">
+          <%= link_to "モード選択", new_mode_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(new_quiz_path) %>">
+          <%= link_to "クイズ", new_quiz_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(logout_path) %>">
+          <%= link_to "ログイン", login_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
 </header>

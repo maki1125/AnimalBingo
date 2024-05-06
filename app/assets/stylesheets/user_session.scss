@@ -1,5 +1,5 @@
 .row2{
-  width:500px;
+  //width:500px;
 
 }
 .text-center{
@@ -22,11 +22,12 @@
 }
 
 .container{
-
- 
-  position: relative; //フッターを下に固定するために追加
-  min-height: 100vh;
-  padding-bottom: 40px;
+  flex-direction: column;
+  //position: relative; //フッターを下に固定するために追加
+  //min-height: 100vh;
+  //padding-bottom: 40px;
 }
-
+form{
+  max-width:300px;
+}
 

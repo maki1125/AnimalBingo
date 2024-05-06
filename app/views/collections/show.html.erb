@@ -13,16 +13,18 @@
 </head>
 <body>
   <div class="container">
-  <div class="row">
-    <div class="LeftContent col-4">
+  <h1>動画で学ぼう！</h1>
+  <p></p>
+  <div class="row size">
+    <div class="LeftContent col-md-4 col-12">
       <p id="name"><%= @animal.name %></p>
       <div class="square">
       <%= image_tag @animal.img %>
       </div>
       <button id="back" class="btn">戻る</button>
     </div>
-    <div class="RightContent col-8">
-      <iframe width="560" height="315" 
+    <div class="RightContent col-md-8 col-12">
+      <iframe 
       src="<%= @animal.youtube_url %>"
       title="YouTube video player" frameborder="0" allow="accelerometer; 
       autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -44,6 +46,7 @@
    names = <%= raw @names.map { |name| "#{name}" }.to_json %>;
    urls = <%= raw @urls.map { |url| "#{url}" }.to_json %>;
    page = <%= @page %>;
+   pic_mode = <%= @pic_mode %>;
     
     </script>
   

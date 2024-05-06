@@ -23,13 +23,15 @@ let ruret_images = images; //
 function createBingoCard(outer, images,cardId, names){
     for(let i = 0; i < MASS * MASS; i++){// 画像をマス上に表示
         let divSquare = document.createElement('div');//セルのdiv要素作成。
-        divSquare.classList.add('square'); //作成したセルにsquareクラスを追加。
         let div = document.createElement('div');//セル内に画像を配置するためのdiv要素作成。
         let img = document.createElement('img');//img要素の作成。
         img.src = images[i]; // 画像のパスを設定.htmlで変数作成。
+        
         div.appendChild(img);//div要素の中にimg要素を追加。
         divSquare.appendChild(div)
         outer.appendChild(divSquare);
+        
+        divSquare.classList.add('square'); //作成したセルにsquareクラスを追加。
         divSquare.setAttribute('id', `${squareIdCounter}-${names[i]}`);
         //console.log(`${squareIdCounter}-${names[i]}`);
         squareIdCounter++; // カウンターをインクリメント

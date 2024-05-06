@@ -9,13 +9,16 @@
 
 <div class="container">
 <div class="anime">
-
-   <%= image_tag 'bird.png', size: '40x40', class: 'move-left bird' %>
-   <%= image_tag 'animal/6.png', size: '40x40', class: 'poyooon' %>
+  <div class="bird">
+   <%= image_tag 'bird.png', size: '40x40' %>
+  </div> 
+  <div class="poyooon">
+   <%= image_tag 'animal/6.png', size: '40x40' %>
+  </div>
 </div>
 
 
-  <div class='top-para main'>
+  <div class=' main'>
     <h1>どうぶつビンゴ</h1>
     <p>100種類の動物が登場（予定）！！
     <br>遊びながら動物を学べて知育にピッタリ！
@@ -31,7 +34,7 @@
     <h1 class="text-center">遊び方</h1>
     <div class="row set">
       <div class="col-md-6">
-        <video width="300" height="200" controls autoplay loop muted >
+        <video width="320" height="180" controls autoplay loop muted playsinline >
           <source src="/videos/mov1.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -49,7 +52,7 @@
     <div class="row set">
       <div class="video col-md-6">
         <!-- 動画の埋め込みコードなど -->
-        <video width="300" height="200" controls autoplay loop muted >
+        <video width="320" height="180" controls autoplay loop muted playsinline >
           <source src="/videos/mov2.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -66,7 +69,7 @@
     <h1 class="text-center">モード選択機能</h1>
     <div class="row set">
       <div class="video col-md-6">
-        <video width="300" height="200" controls autoplay loop muted >
+        <video width="320" height="180" controls autoplay loop muted playsinline >
           <source src="/videos/mov3.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -79,6 +82,24 @@
       </div>
     </div>
   </div>
+
+  <div class='top-para'>
+    <h1 class="text-center">クイズ機能</h1>
+    <div class="row set">
+      <div class="video col-md-6">
+        <video width="320" height="180" controls autoplay loop muted playsinline >
+          <source src="/videos/mov4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="description col-md-6">
+        <p>・この機能は<span style="color: red;">ログイン</span>したら使えるよ！</p>
+        <p>・<span style="color: red;">クイズ</span>に正解した数だけ仲間が増える。</p>
+        <p>・増やした仲間は<span style="color: red;">コレクション</span>で確認。</p>
+      </div>
+    </div>
+  </div>
+
   <%= button_to "さっそく遊ぶ", {controller: 'bingo', action: 'play'}, method: :get,  class: "btn" %>
 </div>
 </div>

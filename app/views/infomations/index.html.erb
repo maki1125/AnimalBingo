@@ -6,9 +6,9 @@
      <%= stylesheet_link_tag 'infomation', :media => "all" %>
 </head>
 <body>
-<div class="row info">
+<div class="container">
+<div class="info">
 
-    <div class="col-12">
       <h1>お知らせ</h1>
         <% if @infomations.present? %>
           <%= render @infomations %>
@@ -17,7 +17,7 @@
         <% end %>
         <%= paginate @infomations %>
 
-    </div>
+</div>
 </div>
 </body>
 </html>
