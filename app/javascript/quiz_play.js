@@ -1,4 +1,4 @@
-console.log("pictureName",pictureName)
+//console.log("pictureName",pictureName)
 //console.log(quiz_select);
 //console.log(img_ass);
 //console.log(pictureName);
@@ -48,7 +48,7 @@ function updateImages() {
     const imgElement = document.getElementById(`img${i+1}`);
     // src属性を変更する
     imgElement.src = img_ass[i + (question_no - 1) * 3];
-    console.log("srcパス",i + (question_no - 1));
+    //console.log("srcパス",i + (question_no - 1));
   }
 }
 
@@ -95,9 +95,9 @@ decisionButton.addEventListener('click', function() {
       if (radioButtons.length > 0) {
           // 選択されているラジオボタンの値を取得
           selectedValue = radioButtons[0].value;
-          console.log('選択された値:', selectedValue,radioButtons);
+          //console.log('選択された値:', selectedValue,radioButtons);
       } else {
-          console.log('ラジオボタンが選択されていません。');
+          //console.log('ラジオボタンが選択されていません。');
       }
 
       //答え合わせ
@@ -117,7 +117,7 @@ decisionButton.addEventListener('click', function() {
       if(question_no<5){
       decisionButton.textContent = "次の問題へ行く";
       decisionButton.style.backgroundColor = 'blue'; // 例えば赤色に変更
-      console.log("decisionButton",decisionButton);
+      //console.log("decisionButton",decisionButton);
       }else{
         decisionButton.textContent = "結果を見る";
         decisionButton.style.backgroundColor = 'green'; // 例えば赤色に変更
@@ -129,7 +129,7 @@ decisionButton.addEventListener('click', function() {
   }else{
   if (decisionButton.textContent == "次の問題へ行く"){
     question_no += 1;
-    console.log("question_no", question_no);
+    //console.log("question_no", question_no);
     updateImages(); // 問題1の画像を更新
     labelBackgroundColorClear(); //ラベルの背景色をクリア
     questionNo(); //問題番号の表示
@@ -141,8 +141,8 @@ decisionButton.addEventListener('click', function() {
   }else{
     if (decisionButton.textContent == "結果を見る"){
       
-      console.log("結果を見る")
-      console.log('hoge=' + encodeURIComponent(ok_num))
+      //console.log("結果を見る")
+      //console.log('hoge=' + encodeURIComponent(ok_num))
       var xhr = new XMLHttpRequest();
       xhr.open("POST", '/quizzes/save', false); // 第3引数をtrueにすると非同期通信になります
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

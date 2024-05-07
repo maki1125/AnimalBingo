@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
   nowplaylabel.classList.add("selected");
   //クリックしたときにselectedにする
   const plays = document.querySelectorAll(".play-mode");
-  console.log(plays)
+  //console.log(plays)
   plays.forEach(function(one) {
     one.addEventListener("click", function() {
       // 選択されたボタンを強調表示

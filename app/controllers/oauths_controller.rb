@@ -1,10 +1,9 @@
 class OauthsController < ApplicationController
   skip_before_action :require_login
+  
   def oauth
     #指定されたプロバイダの認証ページにユーザーをリダイレクトさせる
-    #binding.pry
     login_at(params[:provider])
-    #binding.pry
   end
 
   def callback

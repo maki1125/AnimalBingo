@@ -1,5 +1,5 @@
-console.log("collection/show")
-console.log(page)
+//console.log("collection/show")
+//console.log(page)
 
 
 //地図の上のメッセージ
@@ -47,7 +47,7 @@ async function initMap() {
     geocoder.geocode({ 'address': adresses[i] }, function(results, status) {
       if (status == 'OK') {
         // ジオコーディングが成功した場合
-        console.log("OK");
+        //console.log("OK");
         //map.setCenter(results[0].geometry.location);
             marker[i] = new google.maps.marker.AdvancedMarkerElement({
             map: map,
@@ -72,7 +72,7 @@ async function initMap() {
 
       } else {
         // ジオコーディングが失敗した場合
-        console.log("NG");
+        //console.log("NG");
         alert('該当する結果がありませんでした：' + status);
       }
     }) 

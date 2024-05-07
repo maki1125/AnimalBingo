@@ -1,7 +1,6 @@
 class ModesController < ApplicationController
   def select; end
 
-  # モード選択押した時に新規か更新かわからないため条件分岐を設ける
   def new
     @mode = current_user.mode
   end
