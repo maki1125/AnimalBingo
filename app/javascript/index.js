@@ -1,7 +1,7 @@
-console.log("animal_quiz ",animal_quiz )
+//console.log("animal_quiz ",animal_quiz )
 let page = page2;
 let page_add = (parseInt(page)-1)*20 //ページ→IDへ変換
-console.log("page", page2);
+//console.log("page", page2);
 
 let colnum //指定した絵柄のコレクション一覧　ex[1,4,7]
 let colimgass //指定した絵柄のコレクションのアセット変換したimgパスの一覧
@@ -67,8 +67,8 @@ img.addEventListener('click', function(event) {
       $(div).animate({left: '+=40'},100);
       $(div).animate({left: '-=40'},100);
       $(div).animate({left: '+=20'},100);
-      console.log("違うよ")
-      console.log(img)
+      //console.log("違うよ")
+      //console.log(img)
       }
   });
 }

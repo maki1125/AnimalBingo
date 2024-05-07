@@ -3,7 +3,6 @@ class UserSessionsController < ApplicationController
 
   def new
     @alluser=User.all.count
-    # flash[:notice] = "コレクションへのアクセスにはログインが必要です"
   end
 
   def create

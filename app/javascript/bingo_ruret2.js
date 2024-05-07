@@ -60,7 +60,7 @@ function createBingoCard(outer, images,cardId, names){
                     }else{
                         text = "ビンゴ!!君の勝ち!";// テキストを変更
                         bingoFlag= 1;
-                        console.log("一人勝ち");
+                        //console.log("一人勝ち");
                     }
                     animateBingoImages(); //動物を回転させる。
                     // ボタン要素を取得する
@@ -112,7 +112,7 @@ function changeImageSource() {
     image.src = ruretstaImg; // 1枚目のビンゴカードの画像一覧のカードに使用しない最後の一枚をルーレット初期画像とする。
     hedingRuret.textContent = ruretstaName;// テキストを変更
 };
-console.log(names);
+//console.log(names);
 
 // ページが読み込まれたときに画像のsrc属性を変更する
 window.onload = function() {

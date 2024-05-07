@@ -244,14 +244,14 @@ function animateBingoImages() {
         let bingo_list = [];
         //console.log(bingoImages);
         bingoImages.forEach(nodeList => {
-            console.log("nodeList",nodeList)
+            //console.log("nodeList",nodeList)
             nodeList.forEach(element => {
-                console.log("element",element);
+                //console.log("element",element);
                 element.style.backgroundColor = "#30B7FF";
                 //console.log(element.id.substr(cardId.indexOf("-")+1,10));
                 bingo_list.push(element.id.substr(element.id.indexOf("-")+1,10));
                 bingo_list = Array.from(new Set(bingo_list)); //重複を除く。
-                console.log("bingo_list",bingo_list);
+                //console.log("bingo_list",bingo_list);
                 let animalImg = element.querySelector('img'); // 動物のimg要素を取得
                 animalImg.animate(
                     // 途中の状態を表す配列

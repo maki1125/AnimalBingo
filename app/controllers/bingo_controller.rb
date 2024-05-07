@@ -2,8 +2,6 @@ class BingoController < ApplicationController
   skip_before_action :require_login
   
   def play
-    #flash[:notice] = "ビンゴしましょう"
-
     #ログインにより処理分ける
     if logged_in?#ユーザー登録した人
       @quiz = current_user.quiz

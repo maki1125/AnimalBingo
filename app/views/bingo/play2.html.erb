@@ -1,68 +1,66 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>ビンゴ</title>
-    <%= stylesheet_link_tag 'bingo_ruret', :media => "all" %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<% content_for :js do %>
-        <%= javascript_import_module_tag "bingo_ruret2" %>
-    <% end %>
+  <meta charset="UTF-8">
+  <title>ビンゴ</title>
+  <%= stylesheet_link_tag 'bingo_ruret', :media => "all" %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <% content_for :js do %>
+      <%= javascript_import_module_tag "bingo_ruret2" %>
+  <% end %>
 </head>
 <body>
-    <div class="container-fluid">
-      <div class="row size">
-        <!-- ビンゴカード1 -->
-        <div class="bingo col-12 col-lg-5 center right-contents">
-            <div class="bingo-heading">
-                <h2>STARTボタンを押してね</h2>
-            </div>
-            <div class="card">
-                <div class="outer"  id="outer">
-                </div>
+  <div class="container-fluid">
+    <div class="row size">
+      <!-- ビンゴカード1 -->
+      <div class="bingo col-12 col-lg-5 center right-contents">
+        <div class="bingo-heading">
+            <h2>STARTボタンを押してね</h2>
+        </div>
+        <div class="card">
+            <div class="outer"  id="outer">
             </div>
         </div>
-        <!-- ルーレット -->
-        <div class="roulette col-12 col-lg-2">
-          <div class="row roulette-size">
-            <div class="col-6 col-md-12 center">
+      </div>
+      <!-- ルーレット -->
+      <div class="roulette col-12 col-lg-2">
+        <div class="row roulette-size">
+          <div class="col-6 col-md-12 center">
             <div class="ruret_text">
                 <h2>?</h2>
             </div>
             <div class="square2">
-            <img id="result" class="result centering" src=<%= asset_path('question101.png') %> alt="result image">
+              <img id="result" class="result centering" src=<%= asset_path('question101.png') %> alt="result image">
             </div>
           </div>
           <div class="col-6 col-md-12 center">
             <button id="button" class="button">START</button>
           </div>
-          </div>
         </div>
-        <!-- ビンゴカード2 -->
-
-        <div class="bingo col-12 col-lg-5 center right-contents">
-            <div class="bingo-heading2">
-                <h2>STARTボタンを押してね</h2>
-            </div>
-            <div class="card card2">
-                <div class="outer"  id="outer2">
-                </div>
-            </div>
+      </div>
+      <!-- ビンゴカード2 -->
+      <div class="bingo col-12 col-lg-5 center right-contents">
+        <div class="bingo-heading2">
+          <h2>STARTボタンを押してね</h2>
+        </div>
+        <div class="card card2">
+          <div class="outer"  id="outer2">
+          </div>
         </div>
       </div>
     </div>
-    
-    <script> //javascriptにデータを渡す。
-        play_mode = <%= raw @play_btn.to_json %>;
-        mass = <%= raw @mass.to_json %>;
-        images = <%= raw @pictures.to_json %>;
-        names = <%= raw @names.to_json %>;
-        names2 = <%= raw @names2.to_json %>;
-        //const imagePath = "<%= asset_path('animal/1.png') %>";
-        imagePaths = <%= raw @image_paths.map { |path| "#{path}" }.to_json %>;
-        imagePathsArray = <%= raw @image_paths.map { |path| asset_path("#{path}") }.to_json %>;
-        imagePathsArray2 = <%= raw @image_paths2.map { |path| asset_path("#{path}") }.to_json %>;
-    </script>
-
+  </div>
+  
+  <script> //javascriptにデータを渡す。
+      play_mode = <%= raw @play_btn.to_json %>;
+      mass = <%= raw @mass.to_json %>;
+      images = <%= raw @pictures.to_json %>;
+      names = <%= raw @names.to_json %>;
+      names2 = <%= raw @names2.to_json %>;
+      //const imagePath = "<%= asset_path('animal/1.png') %>";
+      imagePaths = <%= raw @image_paths.map { |path| "#{path}" }.to_json %>;
+      imagePathsArray = <%= raw @image_paths.map { |path| asset_path("#{path}") }.to_json %>;
+      imagePathsArray2 = <%= raw @image_paths2.map { |path| asset_path("#{path}") }.to_json %>;
+  </script>
 </body>
 </html>
