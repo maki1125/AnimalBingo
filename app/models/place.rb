@@ -1,3 +1,4 @@
 class Place < ApplicationRecord
-  belongs_to :picture
+  has_many :picture_places, dependent: :destroy
+  has_many :pictures, through: :picture_places
 end
