@@ -16,14 +16,14 @@
   <h1>動画で学ぼう！</h1>
   <p></p>
   <div class="row size">
-    <div class="LeftContent col-md-4 col-12">
+    <div class="LeftContent col-md-3 col-12">
       <p id="name"><%= @animal.name %></p>
       <div class="square">
         <%= image_tag @animal.img %>
       </div>
       <button id="back" class="btn">戻る</button>
     </div>
-    <div class="RightContent col-md-8 col-12">
+    <div class="RightContent col-md-9 col-12">
       <iframe 
       src="<%= @animal.youtube_url %>"
       title="YouTube video player" frameborder="0" allow="accelerometer; 

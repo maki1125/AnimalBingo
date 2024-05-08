@@ -1,6 +1,7 @@
 /*要素を縦に並べる*/
 .row{
-  width:80%;
+  width:100%;
+  max-width:800px;
 }
 
 .container{
@@ -38,7 +39,7 @@
 
 #map {
   height: 300px;
-  width: 80%;//300px;
+  width: 100%;//300px;
   max-width: 600px;
 }
 
