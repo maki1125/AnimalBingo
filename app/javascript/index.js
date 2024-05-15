@@ -1,19 +1,14 @@
-//console.log("animal_quiz ",animal_quiz )
-let page = page2;
+let page = page2; //page2はhtmlから受け取るページ番号
 let page_add = (parseInt(page)-1)*20 //ページ→IDへ変換
-//console.log("page", page2);
-
 let colnum //指定した絵柄のコレクション一覧　ex[1,4,7]
 let colimgass //指定した絵柄のコレクションのアセット変換したimgパスの一覧
+let col_card = document.getElementById('col_card'); //htmlに設定
+let pic = pic_mode //選択されている絵柄。どうぶつ、さかな、きょうりゅう。
+let all_imgass //選択された絵柄の全ての画像
+let friend; //仲間の数
 const COLUMN_LENGTH = 4; //表示マスの行数
 const ROW_LENGTH = 5; //表示マスの列数
 const squareWidth = 100 / ROW_LENGTH; // カラム数に基づいたマスの幅
-let col_card = document.getElementById('col_card'); //htmlに設定
-let pic = pic_mode //選択されている絵柄。どうぶつ、さかな、きょうりゅう。
-var all_imgass //選択された絵柄の全ての画像
-let friend; //仲間の数
-
-
 
 // 初期一覧作成
 for(let i = 1; i <= COLUMN_LENGTH * ROW_LENGTH; i++){// 画像をマス上に表示
@@ -26,33 +21,12 @@ for(let i = 1; i <= COLUMN_LENGTH * ROW_LENGTH; i++){// 画像をマス上に表
   div.appendChild(img);//div要素の中にimg要素を追加。
   divSquare.classList.add('square'); //作成したセルにsquareクラスを追加。
   img.setAttribute('id', `${i}`);
-  //bingoリストにあるかどうか確認＋画像の表示
-  //var colcount=0; //一覧表示時に使用するカウント。colimgassの要素指定に使用。
-  
-  //pictureData(pic_mode)//上ボタンで選択されている絵柄のデータを取得
-  
-  //クイズで仲間にしたものを表示
-  //if (i<friend){
-    //img.src = all_imgass[i-1]
-  //}else{
-    //img.src = question_imgass; //はてなマーク
-  ///}
-  //ビンゴしたものに動きをつける
-  //if (colnum.includes(i.toString())){
-    //img.classList.add("ok"); //これによって絵の動きを変える。
-    //divSquare.classList.add("ok");
-  //}else{
-    //img.classList.remove("ok");
-    //divSquare.classList.remove("ok");
-  //}
-
   addClickEvent(img,i) //ますをクリックした時の動きを追加 
 }
-pictureData(pic_mode)
-changeImage()
-//ビンゴカードの並びの設定
-$('.square').css('flex', `0 0 ${squareWidth}%`);
 
+pictureData(pic_mode) //一覧表示のためのデータ取得
+changeImage() // 画像の表示
+$('.square').css('flex', `0 0 ${squareWidth}%`);//ビンゴカードの並びの設定
 
 // 画像に動きをつける関数
 function addClickEvent(img,index) {
@@ -80,6 +54,7 @@ function handleImageClick(imageId) {
   // 詳細ページへリダイレクト
   window.location.href = detailPageUrl;
 }
+
 //詳細->一覧の時の下ボタンの処理
 const buttons = document.querySelectorAll('.btn2');
 let btn2_count = 1
@@ -174,7 +149,6 @@ function pictureData(pic) {
 //マス一覧画像の変更
 function changeImage(){
   let divSquare = document.querySelectorAll('.square'); //htmlに設定
-  //console.log("divSquareall",divSquare);
   for(let i = 1; i <= COLUMN_LENGTH * ROW_LENGTH; i++){
     let imgElement = document.getElementById(i);
     //クイズで集めた仲間かどうか確認
@@ -183,17 +157,15 @@ function changeImage(){
     }else{
       imgElement.src = question_imgass; //はてなマーク
     }
-    //bingoリストにあるかどうか確認
-    if (colnum.includes((page_add+i).toString())){
-      //imgElement.src = all_img[page_add+i-1]; // 画像のパスを設定.htmlで変数作成。何故か-1しないと次のやつになる。
-      imgElement.classList.add("ok");
-      divSquare[i-1].classList.add("ok");
-    }else{
-      //imgElement.src = colimgass[colimgass.length -1]; //はてなマーク
-      //imgElement.src = question_imgass;
-      imgElement.classList.remove("ok");
-      divSquare[i-1].classList.remove("ok");
-    }
+    //bingoリストにあるかどうか確認（全ての詳細を見れるようにするためこの機能は削除）
+    imgElement.classList.add("ok");
+    //if (colnum.includes((page_add+i).toString())){
+      //imgElement.classList.add("ok"); //動き
+      //divSquare[i-1].classList.add("ok"); //ますの色
+    //}else{
+      //imgElement.classList.remove("ok");
+      //divSquare[i-1].classList.remove("ok");
+    //}
   }
 }
 

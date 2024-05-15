@@ -1,3 +1,5 @@
+console.log(names);
+
 const MASS = mass;
 const squareWidth = 100 / MASS; // カラム数に基づいたマスの幅
 let squareIdCounter = 0; // マスのID用のカウンターを初期化
@@ -108,7 +110,6 @@ window.onload = function() {
 rouletteProcessing();
 function rouletteProcessing() {
     var timer;
-
 
     //var random;
     // START・STOPボタンクリックのイベント

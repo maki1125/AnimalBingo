@@ -52,9 +52,26 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    pic = params[:pic]
-    @page = params[:page]
-    case pic
+    @post = Post.new(
+      user_id: current_user.id,
+      picture_id: params[:id]
+    )
+    @posts = Post.where(picture_id: params[:id]).order(created_at: "DESC")
+    #binding.pry
+    #pageの取得。index->showの場合はある。post->showの場合はない。
+    if params[:pic]!=nil
+      pic = params[:pic]
+      @page = params[:page]
+      mode = current_user.mode
+      mode.page = @page #Modeデータベースに保存。postのcreateからページを戻すため。
+      mode.pic = params[:pic] #Modeデータベースに保存。postのcreateからページを戻すため。
+      mode.picture_id = params[:id]
+      mode.save # データ保存
+    end
+      pic = current_user.mode.pic
+      @page = current_user.mode.page
+
+      case pic
     when "どうぶつ"
       @animal = Animal.offset(params[:id].to_i - 1).first #pictureのIDは項目関係なく連番でつけられているため、offset使用してそれぞれの項目の何番目のデータを持ってくるというようにしている。
       @pic_mode = 1; #indexに戻る時に必要な情報
@@ -66,10 +83,12 @@ class CollectionsController < ApplicationController
       @pic_mode = 3;
       # binding.pry
     end
+    #binding.pry
     places = @animal.places
     @adresses = places.map(&:adress)
     @names = places.map(&:name)
     @urls = places.map(&:url)
+    #binding.pry
   end
 
   def save
@@ -80,5 +99,9 @@ class CollectionsController < ApplicationController
       #binding.pry
     end
     #binding.pry
+  end
+
+  private
+  def page_params
   end
 end

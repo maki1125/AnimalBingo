@@ -9,6 +9,7 @@ body {
   background-repeat: no-repeat, repeat;
   background-size: cover; /* 画像を背景にフィットさせる */
   background-position: center; /* 画像を中央に配置 */
+  //min-height: calc(100vh - 70px);
 }
 
 header {
