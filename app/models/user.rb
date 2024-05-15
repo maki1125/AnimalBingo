@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :user_pictures, dependent: :destroy
   has_many :pictures, through: :user_pictures
+
+  has_many :posts, dependent: :destroy
+
   has_one :mode, dependent: :destroy
   has_one :quiz, dependent: :destroy #ユーザーはquizを一つしか持たない。ユーザーが削除されたらquizも削除される。
   after_create :create_default_quiz,:create_default_mode #ユーザ作成時にquizの初期データを作成する。
@@ -9,7 +12,7 @@ class User < ApplicationRecord
 
   # それぞれの絵柄の一覧を取得する
   def animals
-    pictures.where(type: 'Animal')
+    pictures.where(type: 'UAnimal')
   end
   def fishes
     pictures.where(type: 'Fish')

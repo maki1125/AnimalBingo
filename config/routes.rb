@@ -24,9 +24,12 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
 
   #コレクション
-  resources :collections, only: %i[index show]
+  resources :collections, only: %i[index show] 
   post '/collections/save', to: 'collections#save'
   
+  #投稿
+  resources :posts, only: %i[new create] 
+
   #モード選択
   get '/modes/select', to: 'modes#select'
   resources :modes, only: %i[new create update edit]

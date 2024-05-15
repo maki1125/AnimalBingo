@@ -4,7 +4,8 @@
     //width:1500px;
 }
 
-.container-fluid { //ビンゴ対決でcontainerでは横幅が1140pxに制限されるため。
+//play2用
+.container-fluid { //ビンゴ対決でcontainerではbootstrapにより横幅が1140pxに制限されるため。
   /* 水平・垂直方向の中央揃え */
   display: flex;
   justify-content: center;
@@ -15,12 +16,14 @@
   min-height: calc(100vh - 180px);
   
 }
-.size{
+
+//play1,2共通
+.size{//ビンゴカード・ルーレットを含んだサイズ
     width:90%; //ここを指定しないとルーレットのストップスタートでカードの大きさが変化する。
     //width:1500px;
 }
-//縦並びの水平・垂直中央ならべ
-.center{
+
+.center{//縦並びの水平・垂直中央ならべ
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -31,7 +34,7 @@
 .card{//1枚目のカード
     background-color: orange;
     padding: 10px;
-    width: 90%;
+    width: 90%; //ルーレットの文字にカードが被らないように。
     //width:1000px;
     max-width:500px;
 }
@@ -48,15 +51,15 @@
     border:solid 1px black;
     flex: 0 0 20%;
     position: relative;
-
+    //padding-top:30%;
 }
 .square div{
-    position: absolute;
+    position: absolute;//擬似要素の下に配置されるのため、squareの位置を基準にする。
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display:flex;
+    width: 100%; //擬似要素で作った正方形に大きさを合わせる。
+    height: 100%;//擬似要素で作った正方形に大きさを合わせる。
+    display:flex;//imgを中央に寄せるため設定
     justify-content: center;
     align-items: center;
 }
@@ -64,18 +67,18 @@
     /* 画像のスタイル */
     max-width: 80%; /* 画像の最大幅をマスの幅に合わせる */
     max-height: 80%; /* 画像の最大高さをマスの高さに合わせる */
-    display: block; /* インライン要素をブロック要素に変更 */
-    margin: auto; /* 画像を中央に配置 */
+    //display: block; /* インライン要素をブロック要素に変更 */
+    //margin: auto; /* 画像を中央に配置 */
+}
+
+.square::before{//正方形を作成
+    content: '';
+    display: block;
+    padding-top:100%;//縦横比。100%にすることで正方形になる。上の要素の横幅に対しての割合。50%にすると横長、150%にすると縦長の長方形になる。
 }
 .gray{
     background-color: #b9deff;
 }
-.square::before{
-    content: '';
-    display: block;
-    padding-top:100%;
-}
-
  h2{
     font-size:20px;
 }

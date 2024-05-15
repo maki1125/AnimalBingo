@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_07_004236) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_15_111830) do
   create_table "authentications", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider", null: false
@@ -41,6 +41,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_07_004236) do
     t.integer "level_mode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "page"
+    t.string "pic"
+    t.integer "picture_id"
     t.index ["user_id"], name: "index_modes_on_user_id", unique: true
   end
 
@@ -69,6 +72,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_07_004236) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "picture_id", null: false
+    t.text "comment"
+    t.string "img"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "user_name"
+    t.index ["picture_id"], name: "index_posts_on_picture_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "quizzes", charset: "utf8mb4", force: :cascade do |t|
@@ -107,6 +122,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_07_004236) do
   add_foreign_key "modes", "users"
   add_foreign_key "picture_places", "pictures"
   add_foreign_key "picture_places", "places"
+  add_foreign_key "posts", "pictures"
+  add_foreign_key "posts", "users"
   add_foreign_key "quizzes", "users"
   add_foreign_key "user_pictures", "pictures"
   add_foreign_key "user_pictures", "users"

@@ -87,4 +87,9 @@ backButton.addEventListener('click', function() {
     var url =  `/collections?page=${page}&pic=${pic_mode}`;
     window.location.href = url;// リダイレクト
 });
+var backButton2 = document.getElementById('back2');
+backButton2.addEventListener('click', function() {
+    var url =  `/collections?page=${page}&pic=${pic_mode}`;
+    window.location.href = url;// リダイレクト
+});
 

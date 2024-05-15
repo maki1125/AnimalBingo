@@ -47,7 +47,7 @@ gem "sassc-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'dotenv-rails' # 環境変数をgithubに後悔しないようにするためのもの
+# gem 'dotenv-rails' # 環境変数をgithubに公開しないようにするためのもの
 
 gem 'sorcery' #ログイン機能
 

@@ -13,32 +13,54 @@
 </head>
 <body>
   <div class="container">
-  <h1>動画で学ぼう！</h1>
-  <p></p>
-  <div class="row size">
-    <div class="LeftContent col-md-3 col-12">
-      <p id="name"><%= @animal.name %></p>
-      <div class="square">
-        <%= image_tag @animal.img %>
-      </div>
-      <button id="back" class="btn">戻る</button>
-    </div>
-    <div class="RightContent col-md-9 col-12">
-      <iframe 
-      src="<%= @animal.youtube_url %>"
-      title="YouTube video player" frameborder="0" allow="accelerometer; 
-      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-  <div class="row">
-   <div class="col-12 place">
-    <h1>見に行ってみよう！</h1>
+    <h1>動画で学ぼう！</h1>
     <p></p>
-    <div id='map'></div>
-    <p>この動物が見られる場所をご意見番から教えて！</p>
-  </div>
-  </div>
+    <div class="row size">
+      <div class="LeftContent col-md-3 col-12">
+        <p id="name"><%= @animal.name %></p>
+        <div class="square">
+          <%= image_tag @animal.img %>
+        </div>
+        <button id="back" class="btn">戻る</button>
+      </div>
+      <div class="RightContent col-md-9 col-12">
+        <iframe 
+        src="<%= @animal.youtube_url %>"
+        title="YouTube video player" frameborder="0" allow="accelerometer; 
+        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    <div class="row size">
+      <div class="col-12 place">
+        <h1>見に行ってみよう！</h1>
+        <p></p>
+        <div id='map'></div>
+        <p>この動物が見られる場所をご意見番から教えて！</p>
+      </div>
+    </div>
+    <div class="row size post">
+      <div class="col-12">
+        <h1>目撃情報求む！</h1>
+        <p>この動物が見られる場所を教えて！</p>
+        <%= form_with(model: @post, url: {controller: 'posts', action: 'create'}) do |form| %>
+          <div>
+          <%= form.text_area :comment, name: "post[comment]", size: "50x5" %>
+          <%= form.hidden_field :picture_id, value: @post.picture_id %> <!-- 隠しフィールドとして@postの属性を含める -->
+          </div>
+          <%= form.submit "投稿" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row size post">
+        <h1>投稿一覧</h1>
+        <% if @posts.present? %>
+          <%= render partial: 'post', collection: @posts %>
+        <% else %>
+          <p>まだ目撃情報ありません。情報求む！</p>
+        <% end %>
+    </div>
+    <button id="back2" class="btn">戻る</button>
   </div>
 
   <script> //javascriptにデータを渡す。
