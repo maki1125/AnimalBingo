@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   post '/collections/save', to: 'collections#save'
   
   #投稿
-  resources :posts, only: %i[new create] 
+  resources :posts, only: %i[new create edit update destroy] 
 
   #モード選択
   get '/modes/select', to: 'modes#select'

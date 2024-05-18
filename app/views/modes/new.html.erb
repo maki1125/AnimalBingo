@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= javascript_tag do %>
+    document.addEventListener('turbo:load', function() {
+      Turbo.session.drive = false;
+    });
+  <% end %>
   <meta charset="utf-8" /> 
   <title>collection</title>
   <%= stylesheet_link_tag 'mode', :media => "all" %>
@@ -8,6 +13,7 @@
   <% content_for :js do %>
     <%= javascript_import_module_tag "mode" %>
   <% end %>
+  
 </head>
 <body>
   <div class="container">
