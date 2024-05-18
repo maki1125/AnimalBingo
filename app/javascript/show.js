@@ -79,7 +79,11 @@ async function initMap() {
   };
 }
 
-initMap();
+//コメント投稿後、削除後のエラー「The Google Maps JavaScript API only loads once. Ignoring」対策。
+document.addEventListener('turbo:load', function() {
+    initMap();
+});
+
 
 // 戻るボタンの要素を取得・イベント追加
 var backButton = document.getElementById('back');
