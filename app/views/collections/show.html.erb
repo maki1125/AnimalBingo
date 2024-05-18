@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8" /> 
   <title>details</title>
   <%= stylesheet_link_tag 'collection_show', :media => "all" %>
@@ -40,13 +41,12 @@
       </div>
     </div>
     <div class="row size post">
-      <div class="col-12">
+      <div class="col-12 size">
         <h1>目撃情報求む！</h1>
         <p>この動物が見られる場所を教えて！</p>
         <%= form_with(model: @post, url: {controller: 'posts', action: 'create'}) do |form| %>
           <div>
           <%= form.text_area :comment, name: "post[comment]", size: "50x5" %>
-          <%= form.hidden_field :picture_id, value: @post.picture_id %> <!-- 隠しフィールドとして@postの属性を含める -->
           </div>
           <%= form.submit "投稿" %>
         <% end %>

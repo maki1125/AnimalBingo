@@ -1,5 +1,8 @@
 <div class="min">【投稿日】<%= post.created_at.strftime('%Y/%m/%d')%>【ユーザー名】<%= post.user_name %>さん</div>
 <div class="min"></div>
 <div class="comment">【コメント】<%= post.comment %></div>
+<% if current_user.id == post.user_id %>
+  <%= link_to "削除", post_path(post),data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
+<% end %>
 <hr>
 
