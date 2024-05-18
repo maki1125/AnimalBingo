@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <%= javascript_tag do %>
+    document.addEventListener('turbo:load', function() {
+      Turbo.session.drive = false;
+    });
+  <% end %>
   <meta charset="UTF-8">
   <title>ビンゴ</title>
   <%= stylesheet_link_tag 'bingo_ruret', :media => "all" %>
@@ -8,8 +13,10 @@
   <% content_for :js do %>
     <%= javascript_import_module_tag "bingo_ruret1" %>
   <% end %>
+  
 </head>
 <body>
+
   <div class="container">
     <div class="row size">
       <!-- ビンゴカード -->

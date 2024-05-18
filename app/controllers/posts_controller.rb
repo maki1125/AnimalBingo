@@ -1,19 +1,14 @@
 class PostsController < ApplicationController
-#def new
-  #@post = Post.new(
-    #user_id: current_user.id
-    #picture_id: params[:id]
-  #)
-  #binding.pry
-#end
 
-def create #ユーザー作成の時にmodeデータ作成されているためcreateはなくupdateのみ。
+def create
   #binding.pry
+  picture_id = current_user.mode.picture_id #picture_id
+
   @post = Post.new(
     user_id: current_user.id,
-    user_name: current_user.name
+    user_name: current_user.name,
+    picture_id: picture_id
   )
-  picture_id = current_user.mode.picture_id #picture_id
   
   if @post.update(post_params)
     redirect_to controller: "collections", action: "show", id: picture_id
@@ -24,6 +19,13 @@ def create #ユーザー作成の時にmodeデータ作成されているためc
     # binding.pry
   end
 end
+
+def destroy
+  @post = Post.find(params[:id]).destroy
+  picture_id = current_user.mode.picture_id #picture_id
+  redirect_to controller: "collections", action: "show", id: picture_id
+end
+
 
 private
 def post_params

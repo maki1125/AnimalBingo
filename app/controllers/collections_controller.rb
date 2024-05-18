@@ -52,11 +52,8 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @post = Post.new(
-      user_id: current_user.id,
-      picture_id: params[:id]
-    )
-    @posts = Post.where(picture_id: params[:id]).order(created_at: "DESC")
+    
+    
     #binding.pry
     #pageの取得。index->showの場合はある。post->showの場合はない。
     if params[:pic]!=nil
@@ -83,7 +80,13 @@ class CollectionsController < ApplicationController
       @pic_mode = 3;
       # binding.pry
     end
-    #binding.pry
+   #binding.pry
+    #@post = Post.new(
+      #user_id: current_user.id,
+      #user_name: current_user.name,
+      #picture_id: @animal.id
+    #)
+    @posts = Post.where(picture_id: @animal.id).order(created_at: "DESC")
     places = @animal.places
     @adresses = places.map(&:adress)
     @names = places.map(&:name)
