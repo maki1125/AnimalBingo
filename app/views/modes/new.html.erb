@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+  <meta name="turbovisit-control" content="reload">
   <meta charset="utf-8" /> 
   <title>collection</title>
   <%= stylesheet_link_tag 'mode', :media => "all" %>
@@ -53,12 +53,6 @@
     pic_mode = "<%= @mode.picture_mode %>"
     level_mode = "<%= @mode.level_mode %>"
  </script>  
- <%= javascript_tag do %>
-    document.addEventListener('turbo:load', function() {
-      Turbo.session.drive = false;
-    });
-  <% end %> 
-
 
 </body>
 </html>
