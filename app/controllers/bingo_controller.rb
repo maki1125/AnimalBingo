@@ -43,7 +43,7 @@ class BingoController < ApplicationController
       select_table = Animal
       friend = 0
     end
-    @pictures = select_table.first(30+friend).sample(@mass*@mass+1) #ビンゴカードマスとルーレットの分の画像を取得
+    @pictures = select_table.first(30+friend).sample(@mass*@mass) #ビンゴカードマス分の画像を取得
     @pictures2 = select_table.first(30+friend).sample(@mass*@mass)
     @image_paths = @pictures.map(&:img) #データの順を同じにするためにpluckではくmapを使用。
     @image_paths2 = @pictures2.map(&:img) #2枚目のビンゴカード用データ

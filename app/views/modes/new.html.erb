@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= javascript_tag do %>
-    document.addEventListener('turbo:load', function() {
-      Turbo.session.drive = false;
-    });
-  <% end %>
+  
   <meta charset="utf-8" /> 
   <title>collection</title>
   <%= stylesheet_link_tag 'mode', :media => "all" %>
@@ -56,7 +52,12 @@
     play_mode = "<%= @mode.play_mode %>"
     pic_mode = "<%= @mode.picture_mode %>"
     level_mode = "<%= @mode.level_mode %>"
- </script>   
+ </script>  
+ <%= javascript_tag do %>
+    document.addEventListener('turbo:load', function() {
+      Turbo.session.drive = false;
+    });
+  <% end %> 
 
 
 </body>

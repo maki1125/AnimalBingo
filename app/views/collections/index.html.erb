@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
 
-  <%= javascript_tag do %>
-    document.addEventListener('turbo:load', function() {
-      Turbo.session.drive = false;
-    });
-  <% end %>
   <meta charset="utf-8" /> 
   <title>collection</title>
   <%= stylesheet_link_tag 'collection_index', :media => "all" %>
@@ -40,7 +36,8 @@
   </div>
   
   <script> //javascriptにデータを渡す。
-    pic_mode = "<%= @favorite_btn %>"
+    //pic_mode = "<%= @favorite_btn %>"
+    picture_mode = <%= @picture_mode %>
     //1.動物
     allanimal_imgass = <%= raw @allanimal_img.map { |path| asset_path("#{path}") }.to_json %>;
     colanimal_img = <%= raw @colanimal_img.map { |path| "#{path}" }.to_json %>;
@@ -63,6 +60,11 @@
     question_imgass = "<%= asset_path("question101.webp") %>";
     page2 = <%= @page %>
     </script>
+    <%= javascript_tag do %>
+    document.addEventListener('turbo:load', function() {
+      Turbo.session.drive = false;
+    });
+  <% end %>
 
 </body>
 </html>
