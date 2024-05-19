@@ -48,11 +48,15 @@
     <%= form.submit "このモードで遊ぶ" %>
   <% end %>
   <div> 
- <script> //javascriptにデータを渡す。
+  <script> //javascriptにデータを渡す。
     play_mode = "<%= @mode.play_mode %>"
     pic_mode = "<%= @mode.picture_mode %>"
     level_mode = "<%= @mode.level_mode %>"
- </script>  
-
+  </script>  
+  <%= javascript_tag do %>
+    document.addEventListener('turbo:load', function() {
+      Turbo.session.drive = false;
+    });
+  <% end %> 
 </body>
 </html>
