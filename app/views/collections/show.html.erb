@@ -22,7 +22,8 @@
         <div class="square">
           <%= image_tag @animal.img %>
         </div>
-        <button id="back" class="btn">戻る</button>
+        <%= button_to '戻る', collections_path, method: :get %>
+        <!-- <button id="back" class="btn">戻る</button>-->
       </div>
       <div class="RightContent col-md-9 col-12">
         <iframe 
@@ -60,7 +61,8 @@
           <p>まだ目撃情報ありません。情報求む！</p>
         <% end %>
     </div>
-    <button id="back2" class="btn">戻る</button>
+    <%= button_to '戻る', collections_path, method: :get %>
+    <!-- <button id="back2" class="btn">戻る</button> -->
   </div>
 
   <script> //javascriptにデータを渡す。

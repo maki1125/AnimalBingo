@@ -91,7 +91,7 @@ class CollectionsController < ApplicationController
     @adresses = places.map(&:adress)
     @names = places.map(&:name)
     @urls = places.map(&:url)
-    #binding.pry
+    # binding.pry
   end
 
   def save

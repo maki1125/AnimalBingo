@@ -21,11 +21,11 @@ def create
 end
 
 def destroy
+  #binding.pry
   @post = Post.find(params[:id]).destroy
   picture_id = current_user.mode.picture_id #picture_id
   redirect_to controller: "collections", action: "show", id: picture_id
 end
-
 
 private
 def post_params
