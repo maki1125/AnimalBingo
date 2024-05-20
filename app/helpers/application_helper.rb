@@ -16,7 +16,7 @@ module ApplicationHelper
       ],
       og: {
         site_name: 'どうぶつビンゴ',
-        title: 'タイトル',
+        title: 'どうぶつビンゴ',
         description: '子供向けの動物の絵柄のビンゴゲームです。遊ぶほど動物に詳しくなる
         ！クイズや動物の動画、動物園の場所までチェック出来ちゃう！', 
         type: 'website',
@@ -27,6 +27,9 @@ module ApplicationHelper
       twitter: {
         card: 'summary_large_image',
         site: '@gong_zhen17902',
+        image: image_url('OGP_90KB.png'),
+        description: '子供向けの動物の絵柄のビンゴゲームです。遊ぶほど動物に詳しくなる
+        ！クイズや動物の動画、動物園の場所までチェック出来ちゃう！', 
       }
       #fb: {
         #app_id: ''
