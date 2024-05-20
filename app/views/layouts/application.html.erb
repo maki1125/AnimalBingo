@@ -2,11 +2,21 @@
 <html>
   <head>
     <title>Animalbingo</title>
+
+    <meta property="og:url" content="http://localhost:3004/" />
+    <meta property="og:type" content=" website" />
+    <meta property="og:title" content="どうぶつビンゴ" />
+    <meta property="og:description" content="子供向けの動物の絵柄のビンゴゲームです。遊ぶほど動物に詳しくなる機能つき！" />
+    <meta property="og:site_name" content="どうぶつビンゴ" />
+    <meta property="og:image" content="OGP.webp" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gong_zhen17902" />
+
     <%= favicon_link_tag 'favicon.ico' %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <%= stylesheet_link_tag "common", "data-turbo-track": "reload" %>
