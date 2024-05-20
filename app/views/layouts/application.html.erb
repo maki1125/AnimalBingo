@@ -3,16 +3,7 @@
   <head>
     <title>Animalbingo</title>
 
-    <meta property="og:url" content="https://animalbingo2-34d68e449c22.herokuapp.com" />
-    <meta property="og:type" content=" website" />
-    <meta property="og:title" content="どうぶつビンゴ" />
-    <meta property="og:description" content="子供向けの動物の絵柄のビンゴゲームです。遊ぶほど動物に詳しくなる機能つき！" />
-    <meta property="og:site_name" content="どうぶつビンゴ" />
-    <meta property="og:image" content=<%= image_tag 'OGP_90KB.png' %> />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@gong_zhen17902" />
-    <meta property="twitter:image" content=<%= image_tag 'OGP_90KB.png' %> />
+    <%= display_meta_tags(default_meta_tags) %>
 
     <%= favicon_link_tag 'favicon.ico' %>
     <meta name="viewport" content="width=device-width,initial-scale=1">

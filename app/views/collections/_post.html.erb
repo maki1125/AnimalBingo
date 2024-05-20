@@ -1,4 +1,4 @@
-<div class="min">【投稿日】<%= post.created_at.strftime('%Y/%m/%d')%>【ユーザー名】<%= post.user_name %>さん</div>
+<div class="min"><%= post.created_at.strftime('%Y/%m/%d')%></div>
 <div class="min"></div>
 <div class="comment">【コメント】<%= post.comment %></div>
 <% if current_user.id == post.user_id %>
