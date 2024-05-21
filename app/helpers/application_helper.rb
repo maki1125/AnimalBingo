@@ -6,7 +6,7 @@ module ApplicationHelper
       reverse: true,
       separator: '|',
       description: 'こども向けの動物のビンゴゲームです。遊ぶほど動物に詳しくなれます！クイズや動物の動画、動物園の場所までチェック出来ます！簡単に遊べますので、ぜひ一度お試しください。',
-      keywords: '動物','ビンゴ','こども',
+      keywords: '動物,ビンゴ,アプリ,こども',
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
       charset: "utf-8"
