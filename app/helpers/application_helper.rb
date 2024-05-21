@@ -3,13 +3,13 @@ module ApplicationHelper
     {
       site: 'どうぶつビンゴ',
       title: '【アプリ】こども向け動物ビンゴゲーム',
-      reverse: true,
+      reverse: false,
       separator: '|',
       description: 'こども向けの動物のビンゴゲームです。遊ぶほど動物に詳しくなれます！クイズや動物の動画、動物園の場所までチェック出来ます！簡単に遊べますので、ぜひ一度お試しください。',
       keywords: '動物,ビンゴ,アプリ,こども',
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
-      charset: "utf-8"
+      charset: "utf-8",
       icon: [
         { href: image_url('favicon.ico') },
         { href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
