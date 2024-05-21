@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <%= javascript_tag do %>
-    document.addEventListener('turbo:load', function() {
-      Turbo.session.drive = false;
-    });
-  <% end %>
+  
   <meta charset="UTF-8">
   <title>ビンゴ</title>
   <%= stylesheet_link_tag 'bingo_ruret', :media => "all" %>
@@ -34,7 +30,7 @@
         <div class="row roulette-size">
           <div class="col-6 col-md-12 center">
             <div class="ruret_text">
-                <h2>?</h2>
+                <h2></h2>
             </div>
             <div class="square2">
             <img id="result" class="result " src=<%= asset_path('question101.png') %> alt="result image">
@@ -53,8 +49,14 @@
       images = <%= raw @pictures.to_json %>;
       names = <%= raw @names.to_json %>;
       //const imagePath = "<%= asset_path('animal/1.png') %>";
+      question_imgass = "<%= asset_path("question101.webp") %>";
       imagePaths = <%= raw @image_paths.map { |path| "#{path}" }.to_json %>;
       imagePathsArray = <%= raw @image_paths.map { |path| asset_path("#{path}") }.to_json %>;
   </script>
+  <%= javascript_tag do %>
+    document.addEventListener('turbo:load', function() {
+      Turbo.session.drive = false;
+    });
+  <% end %>
 </body>
 </html>

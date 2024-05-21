@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_15_111830) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_19_033045) do
   create_table "authentications", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_15_111830) do
     t.integer "page"
     t.string "pic"
     t.integer "picture_id"
+    t.integer "pic_no"
     t.index ["user_id"], name: "index_modes_on_user_id", unique: true
   end
 

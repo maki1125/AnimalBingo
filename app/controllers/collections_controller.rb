@@ -4,28 +4,13 @@ class CollectionsController < ApplicationController
   def index
     #現在のモードで最初の表示のコレクション一覧を変化させる。
     @mode = current_user.mode 
-    @page = params[:page]#詳細から戻った時にあるデータ
-    @favorite_btn = params[:pic].to_i#詳細から戻った時にあるデータ
-    # binding.pry
-    #初回ログインの場合モード選択未定のため
-    #if @mode.nil?
-      #@favorite_btn = 1
-    #else
-      
-    #end
-    if @page.nil? 
+    @page = @mode.page
+    @picture_mode = @mode.picture_mode
+
+    #詳細からのページ遷移ではない時。
+    if @page==nil 
       @page=1
-      @favorite_btn = @mode.picture_mode
-    end
-    
-    #選択絵柄ごとの処理
-    case @favorite_btn
-    when 1 #"どうぶつ"
-      @favorite_btn="どうぶつ"
-    when 2 #さかな
-      @favorite_btn="さかな"
-    when 3 #きょうりゅう
-      @favorite_btn="きょうりゅう"
+      @picture_mode = @mode.picture_mode
     end
 
     #すべての絵柄のコレクションデータを準備
@@ -49,43 +34,34 @@ class CollectionsController < ApplicationController
 
     #仲間の数
     @quiz=current_user.quiz
+    #binding.pry
   end
 
   def show
-    
-    
-    #binding.pry
-    #pageの取得。index->showの場合はある。post->showの場合はない。
-    if params[:pic]!=nil
-      pic = params[:pic]
-      @page = params[:page]
-      mode = current_user.mode
-      mode.page = @page #Modeデータベースに保存。postのcreateからページを戻すため。
-      mode.pic = params[:pic] #Modeデータベースに保存。postのcreateからページを戻すため。
-      mode.picture_id = params[:id]
+    mode = Mode.where(user_id: current_user.id).first
+
+    #pageの取得。index（一覧）->showの場合はある。post（投稿）->showの場合はない。
+    if params[:picture_mode]!=nil
+      page = params[:page]
+      mode.page = page #Modeデータベースに保存。postのcreateからページを戻すため。
+      mode.picture_mode = params[:picture_mode] #1,2,3
+      mode.pic_no = params[:id] #各種別の頭からの番号1~100
       mode.save # データ保存
     end
-      pic = current_user.mode.pic
-      @page = current_user.mode.page
 
-      case pic
-    when "どうぶつ"
+    case current_user.mode.picture_mode
+    when 1 #"どうぶつ"
       @animal = Animal.offset(params[:id].to_i - 1).first #pictureのIDは項目関係なく連番でつけられているため、offset使用してそれぞれの項目の何番目のデータを持ってくるというようにしている。
-      @pic_mode = 1; #indexに戻る時に必要な情報
-    when "さかな"
+    when 2 #"さかな"
       @animal = Fish.offset(params[:id].to_i - 1).first
-      @pic_mode = 2;
-    when "きょうりゅう"
+    when 3 #"きょうりゅう"
       @animal = Dinosaur.offset(params[:id].to_i - 1).first
-      @pic_mode = 3;
-      # binding.pry
     end
-   #binding.pry
-    #@post = Post.new(
-      #user_id: current_user.id,
-      #user_name: current_user.name,
-      #picture_id: @animal.id
-    #)
+
+    #画像が決定指定から、picture_idの保存。
+    mode.picture_id = @animal.id #1~300
+    mode.save
+
     @posts = Post.where(picture_id: @animal.id).order(created_at: "DESC")
     places = @animal.places
     @adresses = places.map(&:adress)
@@ -104,7 +80,4 @@ class CollectionsController < ApplicationController
     #binding.pry
   end
 
-  private
-  def page_params
-  end
 end

@@ -1,4 +1,4 @@
-console.log(names);
+//console.log(names);
 
 const MASS = mass;
 const squareWidth = 100 / MASS; // カラム数に基づいたマスの幅
@@ -95,11 +95,11 @@ headingElement.textContent = "STARTボタンを押してね";// テキストを�
 const hedingRuret = document.querySelector('.ruret_text h2');// テキストを表示する要素を取得
 
 //ルーレットの設定
-//ルーレットの最初の画像の設定
+//ルーレットの最初のハテナ画像の設定
 function changeImageSource() {
     var image = document.getElementById('result');
-    image.src = imagePathsArray[MASS * MASS]; // 新しい画像のファイルパスを設定
-    hedingRuret.textContent = names[MASS * MASS];// テキストを変更
+    image.src = question_imgass;//imagePathsArray[MASS * MASS]; // 新しい画像のファイルパスを設定
+    hedingRuret.textContent = "";//names[MASS * MASS];// テキストを変更
 }
 // ページが読み込まれたときに画像のsrc属性を変更する
 window.onload = function() {
@@ -130,7 +130,7 @@ function rouletteProcessing() {
                 random = Math.floor(Math.random() * ruret_images.length);//0~images.length-1の範囲の整数を生成。
                 document.getElementById("result").setAttribute("src", ruret_images[random]);
                 hedingRuret.textContent = ruret_names[random]; // テキストを変更
-            }, 50);
+            }, 70);
             // STOP
         } else {
             this.textContent = "START";

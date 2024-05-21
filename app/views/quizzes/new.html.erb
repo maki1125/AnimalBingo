@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= javascript_tag do %>
-    document.addEventListener('turbo:load', function() {
-      Turbo.session.drive = false;
-    });
-  <% end %>
+  <meta name="turbovisit-control" content="reload">
   <meta charset="utf-8" /> 
   <title>collection</title>
   <%= stylesheet_link_tag 'quiz', :media => "all" %>
@@ -37,6 +33,11 @@
     <div> 
  <script> //javascriptにデータを渡す。
     quiz_select = "<%= @quiz.quiz_select %>"
- </script>   
+ </script>  
+ <%= javascript_tag do %>
+    document.addEventListener('turbo:load', function() {
+      Turbo.session.drive = false;
+    });
+  <% end %> 
 </body>
 </html>

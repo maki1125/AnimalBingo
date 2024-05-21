@@ -1,5 +1,5 @@
 //console.log("collection/show")
-//console.log(page)
+//console.log(page, pic_mode)
 
 
 //地図の上のメッセージ
@@ -79,12 +79,18 @@ async function initMap() {
   };
 }
 
-initMap();
+//コメント投稿後、削除後のエラー「The Google Maps JavaScript API only loads once. Ignoring」対策。
+document.addEventListener('turbo:load', function() {
+  initMap();
+});
 
 // 戻るボタンの要素を取得・イベント追加
+//turbo driveを使用してbutton_to使用のため不要となった。
+/*
 var backButton = document.getElementById('back');
-backButton.addEventListener('click', function() {
-    var url =  `/collections?page=${page}&pic=${pic_mode}`;
+backButton.ad//dEventListener('click', function() {
+    var url =  `/collections`;
+    //var url =  `/collections?page=${page}&pic=${pic_mode}`;
     window.location.href = url;// リダイレクト
 });
 var backButton2 = document.getElementById('back2');
@@ -92,4 +98,4 @@ backButton2.addEventListener('click', function() {
     var url =  `/collections?page=${page}&pic=${pic_mode}`;
     window.location.href = url;// リダイレクト
 });
-
+*/

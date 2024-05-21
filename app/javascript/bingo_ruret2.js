@@ -109,8 +109,8 @@ let hedingRuret = document.querySelector('.ruret_text h2');// テキストを表
 //ルーレットの最初の画像の設定.imagesの1枚目のカードに使用しない最後の画像を使用する。
 function changeImageSource() {
     let image = document.getElementById('result'); //ルーレットの画像要素を取得
-    image.src = ruretstaImg; // 1枚目のビンゴカードの画像一覧のカードに使用しない最後の一枚をルーレット初期画像とする。
-    hedingRuret.textContent = ruretstaName;// テキストを変更
+    image.src = question_imgass;//ruretstaImg; // 1枚目のビンゴカードの画像一覧のカードに使用しない最後の一枚をルーレット初期画像とする。
+    hedingRuret.textContent = "";//ruretstaName;// テキストを変更
 };
 //console.log(names);
 
