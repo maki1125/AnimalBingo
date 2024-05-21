@@ -2,23 +2,22 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'どうぶつビンゴ',
-      title: 'タイトル',
+      title: '【アプリ】こども向け動物ビンゴゲーム',
       reverse: true,
       separator: '|',
-      description: '子供向けの動物の絵柄のビンゴゲームです。遊ぶほど動物に詳しくなる
-      ！クイズや動物の動画、動物園の場所までチェック出来ちゃう！',
-      keywords: 'キーワード',
+      description: 'こども向けの動物のビンゴゲームです。遊ぶほど動物に詳しくなれます！クイズや動物の動画、動物園の場所までチェック出来ます！簡単に遊べますので、ぜひ一度お試しください。',
+      keywords: '動物','ビンゴ','こども',
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
+      charset: "utf-8"
       icon: [
         { href: image_url('favicon.ico') },
-        #{ href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
+        { href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
       ],
       og: {
         site_name: 'どうぶつビンゴ',
-        title: 'どうぶつビンゴ',
-        description: '子供向けの動物の絵柄のビンゴゲームです。遊ぶほど動物に詳しくなる
-        ！クイズや動物の動画、動物園の場所までチェック出来ちゃう！', 
+        title: '【アプリ】こども向け動物ビンゴゲーム',
+        description: 'こども向けの動物のビンゴゲームです。遊ぶほど動物に詳しくなれます！クイズや動物の動画、動物園の場所までチェック出来ます！簡単に遊べますので、ぜひ一度お試しください。', 
         type: 'website',
         url: request.original_url,
         image: image_url('OGP_90KB.png'),
@@ -27,9 +26,6 @@ module ApplicationHelper
       twitter: {
         card: 'summary_large_image',
         site: '@gong_zhen17902',
-        image: image_url('OGP_90KB.png'),
-        description: '子供向けの動物の絵柄のビンゴゲームです。遊ぶほど動物に詳しくなる
-        ！クイズや動物の動画、動物園の場所までチェック出来ちゃう！', 
       }
       #fb: {
         #app_id: ''
