@@ -80,7 +80,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  config.external_providers = %i[google]
+  config.external_providers = [:google, :line]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -158,6 +158,13 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
   #
+  config.line.key = Rails.application.credentials.dig(:line, :line_key)
+  config.line.secret = Rails.application.credentials.dig(:line, :line_secret)
+  config.line.callback_url =  "https://animalbingo2-34d68e449c22.herokuapp.com/oauth/callback?provider=line"#"https://localhost:3004/oauth/callback?provider=line"
+  config.line.scope = "profile"#openid email"
+  # config.line.bot_prompt = "normal"
+  config.line.user_info_mapping = {:email => "userId", :name => "displayName"}
+
   config.google.key =Rails.application.credentials.dig(:google, :google_client_id)
   config.google.secret =Rails.application.credentials.dig(:google, :google_client_secret)
   config.google.callback_url = "https://animalbingo2-34d68e449c22.herokuapp.com/oauth/callback?provider=google" #"http://localhost:3004/oauth/callback?provider=google"
@@ -219,12 +226,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.salesforce.scope = "full"
   # config.salesforce.user_info_mapping = {:email => "email"}
 
-  # config.line.key = ""
-  # config.line.secret = ""
-  # config.line.callback_url = "http://mydomain.com:3000/oauth/callback?provider=line"
-  # config.line.scope = "profile"
-  # config.line.bot_prompt = "normal"
-  # config.line.user_info_mapping = {name: 'displayName'}
+
 
   
   # For information about Discord API

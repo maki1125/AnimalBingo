@@ -11,3 +11,8 @@ COPY yarn.lock /animalbingo_app2/yarn.lock
 RUN bundle install
 
 COPY . /animalbingo_app2
+
+# 証明書ファイルをコピー
+COPY config/certs /myapp/config/certs
+# Pumaを起動
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

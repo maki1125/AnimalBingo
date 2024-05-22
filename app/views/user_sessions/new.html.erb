@@ -23,7 +23,10 @@
           <%= f.submit 'ログイン', class: 'btn' %>
         </div>
       <% end %>
-      <%= link_to 'Googleでログイン', auth_at_provider_path(provider: :google), class: "btn_google" %>
+      <div class="sns-login" >
+        <%= link_to 'Googleでログイン', auth_at_provider_path(provider: :google), class: "btn_google" %>
+        <%= link_to 'LINEでログイン', auth_at_provider_path(provider: :line), class: "btn_google" %>
+      </div>
       <div class='text-center'>
         <%= link_to '登録ページへ', new_user_path %>
       </div>
