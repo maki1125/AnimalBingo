@@ -12,7 +12,8 @@ services:
       - 3303:3302
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3004 -b '0.0.0.0'"
+    #command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3004 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
     container_name: animalbingo3_container
     tty: true
     stdin_open: true

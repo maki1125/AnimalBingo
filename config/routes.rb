@@ -19,7 +19,11 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new' 
   post 'login', to: 'user_sessions#create' 
   delete 'logout', to: 'user_sessions#destroy' 
-
+  
+  #googleログイン
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" 
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   #ユーザー登録
   resources :users, only: %i[new create]
 
@@ -43,11 +47,6 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
-
-  #googleログイン
-  post "oauth/callback" => "oauths#callback"
-  get "oauth/callback" => "oauths#callback" 
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
   #お知らせ
   resources :infomations, only: %i[index]
