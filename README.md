@@ -143,3 +143,5 @@
 ## ER図
 [https://drive.google.com/file/d/1EL9qhK3oPCbmDzAo1uuyJGDM3wqGwmUE/view?usp=sharing](https://drive.google.com/file/d/1EL9qhK3oPCbmDzAo1uuyJGDM3wqGwmUE/view?usp=sharing)
 
+[![Image from Gyazo](https://i.gyazo.com/70e62886883ad5c257466f8858b03656.gif)](https://gyazo.com/70e62886883ad5c257466f8858b03656)
+
