@@ -56,3 +56,5 @@
 
 ## ER図
 [https://drive.google.com/file/d/1EL9qhK3oPCbmDzAo1uuyJGDM3wqGwmUE/view?usp=sharing](https://drive.google.com/file/d/1EL9qhK3oPCbmDzAo1uuyJGDM3wqGwmUE/view?usp=sharing)
+
+[![Image from Gyazo](https://i.gyazo.com/fc3e973dab1d624a0371dbede3134f0e.png)](https://gyazo.com/fc3e973dab1d624a0371dbede3134f0e)
