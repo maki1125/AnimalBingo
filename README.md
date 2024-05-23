@@ -54,7 +54,7 @@
     </tr>
 </table>
 <table>
-  <th width="100%" colspan="2" >モード選択</th>
+  <th width="100%" colspan="2" backgroud_color="orange" >モード選択</th>
     <tr>
       <td width="50%"><img src="https://i.gyazo.com/654c18dadb7d4b61d6f3318a76aab3cc.png" alt="Image from Gyazo" width="1162"/></td>
       <td><img src="https://i.gyazo.com/10bb9f20fc35539d60b7a1aa97339211.jpg" alt="Image from Gyazo" width="1162"/></td>
