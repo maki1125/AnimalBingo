@@ -46,10 +46,12 @@
   <th width="50%">トップページ</th><th width="100%">ビンゴ機能</th>
     <tr>
       <td width="50%"><img src="https://i.gyazo.com/f41a59e6d5360f02b7c5d873ed9cc6e4.png" alt="Image from Gyazo" width="1162"/></td>
-        <td><img src="https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg" alt="Image from Gyazo" width="1162"/></td>
+      <td><img src="https://i.gyazo.com/10bb9f20fc35539d60b7a1aa97339211.jpg" alt="Image from Gyazo" width="1162"/></td>
     </tr>
     <tr>
-      <td>投稿一覧画面にはおすすめ機能とオートコンプリート検索機能を実装しました。おすすめ機能では、ユーザーの「いいね」に基づいて関連の高い投稿を表示します。「いいね」が無い場合は、最も頻繁に使用されるタグが付けられた投稿を表示します。</td><td>いいね機能とSNSシェア機能を実装しました。</td>
+      <td>トップページには小さな子供が目を引くように鳥とウサギに動きをつけました。
+      <br>さらに、使い方はわかりやすいように動画を貼り付けました。</td>
+      <td>小さな子供でも遊べるように数字ではなくかわいい動物のイラストを使用しました。</td>
     </tr>
 </table>
 
