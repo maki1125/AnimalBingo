@@ -43,24 +43,10 @@
 
 ## 機能解説
 <table>
-    <th width="100%" colspan="2" >トップページ・ルーレット機能</th>
-      <tr>
-        <td width="50%">[![Image from Gyazo](https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg)](https://gyazo.com/c3715b6a17ef30a3d604817a14ce81ec)</td>
-        <td>[![Image from Gyazo](https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg)](https://gyazo.com/c3715b6a17ef30a3d604817a14ce81ec)</td>
-      </tr>
-      <tr>
-        <td>トップページには、ルーレット機能、投稿一覧、SNSシェアボタン、アプリの説明モーダルを配置しています。</td>
-        <td>
-        ルーレット機能ではランダムに投稿が表示されます。使用感を楽しく演出するため、アニメーション効果を取り入れました。この機能はログイン不要でアクセス可能です。上記画像はルーレットボタンを押した後のロード画面を示しています。
-        </td>
-      </tr>
-</table>
-
-<table>
-  <th width="50%">投稿一覧</th><th width="100%">投稿詳細</th>
+  <th width="50%">トップページ</th><th width="100%">ビンゴ機能</th>
     <tr>
-      <td width="50%"><img src="https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg" alt="Image from Gyazo" width="1162"/></td>
-        <td><a href="https://gyazo.com/c3715b6a17ef30a3d604817a14ce81ec"><img src="https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg" alt="Image from Gyazo" width="1162"/></a></td>
+      <td width="50%"><img src="https://i.gyazo.com/f41a59e6d5360f02b7c5d873ed9cc6e4.png" alt="Image from Gyazo" width="1162"/></td>
+        <td><img src="https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg" alt="Image from Gyazo" width="1162"/></td>
     </tr>
     <tr>
       <td>投稿一覧画面にはおすすめ機能とオートコンプリート検索機能を実装しました。おすすめ機能では、ユーザーの「いいね」に基づいて関連の高い投稿を表示します。「いいね」が無い場合は、最も頻繁に使用されるタグが付けられた投稿を表示します。</td><td>いいね機能とSNSシェア機能を実装しました。</td>
