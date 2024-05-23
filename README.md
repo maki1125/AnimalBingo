@@ -46,7 +46,7 @@
   <th width="50%" style="background-color: #ffffe0; text-align: center;">トップページ</th>
   <th width="100%"  style="background-color: #ffffe0; text-align: center;">ビンゴ機能</th>
     <tr>
-      <td width="50%"><img src="https://i.gyazo.com/70e62886883ad5c257466f8858b03656.gif" alt="Image from Gyazo" width="1162"/></td>
+      <td width="50%">[![Image from Gyazo](https://i.gyazo.com/70e62886883ad5c257466f8858b03656.gif)](https://gyazo.com/70e62886883ad5c257466f8858b03656)</td>
       <td><img src="https://i.gyazo.com/10bb9f20fc35539d60b7a1aa97339211.jpg" alt="Image from Gyazo" width="1162"/></td>
     </tr>
     <tr>
