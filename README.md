@@ -49,9 +49,27 @@
       <td><img src="https://i.gyazo.com/10bb9f20fc35539d60b7a1aa97339211.jpg" alt="Image from Gyazo" width="1162"/></td>
     </tr>
     <tr>
-      <td>トップページには小さな子供が目を引くように鳥とウサギに動きをつけました。
-      <br>さらに、使い方はわかりやすいように動画を貼り付けました。</td>
-      <td>小さな子供でも遊べるように数字ではなくかわいい動物のイラストを使用しました。</td>
+      <td>小さな子供が目を引くように鳥とウサギに動きをつけました。遊び方には動画を使用しわかりやすくしました。</td>
+      <td>小さな子供でも遊べるように数字ではなく、かわいい動物のイラストを使用しました。</td>
+    </tr>
+</table>
+<table>
+  <th width="100%" colspan="2" >モード選択</th>
+    <tr>
+      <td width="50%"><img src="https://i.gyazo.com/654c18dadb7d4b61d6f3318a76aab3cc.png" alt="Image from Gyazo" width="1162"/></td>
+      <td><img src="https://i.gyazo.com/10bb9f20fc35539d60b7a1aa97339211.jpg" alt="Image from Gyazo" width="1162"/></td>
+    </tr>
+    <tr>
+      <td>遊び方、絵柄、マスの数を選択できるようにして、遊び方にバリエーションを持たせて飽きずに遊べるように工夫をしました。</td>
+      <td>勝負をすることができます。</td>
+    </tr>
+    <tr>
+      <td width="50%"><img src="https://i.gyazo.com/654c18dadb7d4b61d6f3318a76aab3cc.png" alt="Image from Gyazo" width="1162"/></td>
+      <td><img src="https://i.gyazo.com/10bb9f20fc35539d60b7a1aa97339211.jpg" alt="Image from Gyazo" width="1162"/></td>
+    </tr>
+    <tr>
+      <td>遊び方、絵柄、マスの数を選択できるようにして、遊び方にバリエーションを持たせて飽きずに遊べるように工夫をしました。</td>
+      <td>勝負をすることができます。</td>
     </tr>
 </table>
 
