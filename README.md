@@ -59,8 +59,8 @@
 <table>
   <th width="50%">投稿一覧</th><th width="100%">投稿詳細</th>
     <tr>
-      <td>[![Image from Gyazo](https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg)](https://gyazo.com/c3715b6a17ef30a3d604817a14ce81ec)</td>
-      <td>[![Image from Gyazo](https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg)](https://gyazo.com/c3715b6a17ef30a3d604817a14ce81ec)</td>
+      <td width="50%"><img src="https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg" alt="Image from Gyazo" width="1162"/></td>
+        <td><a href="https://gyazo.com/c3715b6a17ef30a3d604817a14ce81ec"><img src="https://i.gyazo.com/c3715b6a17ef30a3d604817a14ce81ec.jpg" alt="Image from Gyazo" width="1162"/></a></td>
     </tr>
     <tr>
       <td>投稿一覧画面にはおすすめ機能とオートコンプリート検索機能を実装しました。おすすめ機能では、ユーザーの「いいね」に基づいて関連の高い投稿を表示します。「いいね」が無い場合は、最も頻繁に使用されるタグが付けられた投稿を表示します。</td><td>いいね機能とSNSシェア機能を実装しました。</td>
